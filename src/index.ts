@@ -1,6 +1,7 @@
 import * as path from 'path';
 import { fetchTrending, validateRepos } from './scraper';
 import { saveToJson } from './utils';
+import { renderCards } from './renderer/index.js';
 
 async function main() {
   try {
@@ -15,6 +16,11 @@ async function main() {
 
     console.log(`Fetched ${validatedRepos.length} trending repos`);
     console.log(`Data saved to: ${outputPath}`);
+
+    console.log('Rendering cards...');
+    const cardPaths = await renderCards(validatedRepos);
+    console.log(`Generated ${cardPaths.length} cards`);
+    cardPaths.forEach((cardPath) => console.log(`  - ${cardPath}`));
   } catch (error) {
     console.error('Failed to fetch trending repos:', error);
     process.exit(1);

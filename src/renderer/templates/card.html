@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+  </style>
+</head>
+<body class="m-0 p-0">
+  <div id="card" class="w-[1080px] h-[1440px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 flex flex-col">
+    <!-- Rank Badge -->
+    <div class="mb-8">
+      <span class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-4xl font-bold shadow-lg">
+        {{rank}}
+      </span>
+    </div>
+
+    <!-- Project Info -->
+    <div class="flex-1 flex flex-col">
+      <!-- Owner -->
+      <p class="text-slate-400 text-3xl mb-2">{{owner}}</p>
+
+      <!-- Project Name -->
+      <h1 class="text-white text-6xl font-bold mb-8 leading-tight break-words">{{name}}</h1>
+
+      <!-- Description -->
+      <div class="flex-1">
+        <p class="text-slate-300 text-3xl leading-relaxed">{{description}}</p>
+      </div>
+    </div>
+
+    <!-- Bottom Stats Bar -->
+    <div class="flex items-center justify-between bg-slate-800/50 rounded-2xl px-8 py-6 mt-8">
+      <!-- Language -->
+      <div class="flex items-center gap-3">
+        <span class="w-5 h-5 rounded-full" style="background-color: {{languageColor}}"></span>
+        <span class="text-slate-300 text-2xl">{{language}}</span>
+      </div>
+
+      <!-- Stars -->
+      <div class="flex items-center gap-3">
+        <svg class="w-7 h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+        <span class="text-slate-300 text-2xl">{{stars}}</span>
+      </div>
+
+      <!-- Today's Stars -->
+      <div class="flex items-center gap-3">
+        <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+        </svg>
+        <span class="text-green-400 text-2xl font-medium">{{todayStars}}</span>
+      </div>
+    </div>
+
+    <!-- Branding -->
+    <div class="mt-6 text-center">
+      <p class="text-slate-500 text-xl">GitHub Trending</p>
+    </div>
+  </div>
+</body>
+</html>

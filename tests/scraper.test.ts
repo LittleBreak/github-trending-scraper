@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import { parseTrendingHtml, validateRepos } from '../src/scraper';
+import { parseTrendingHtml, validateRepos, buildTrendingUrl } from '../src/scraper';
 import { TrendingRepoSchema } from '../src/types';
 import { parseNumber } from '../src/utils';
 
@@ -67,6 +67,61 @@ describe('scraper', () => {
         const result = TrendingRepoSchema.safeParse(repo);
         expect(result.success).toBe(true);
       });
+    });
+  });
+
+  describe('buildTrendingUrl', () => {
+    it('should return base URL when no options provided', () => {
+      expect(buildTrendingUrl()).toBe('https://github.com/trending');
+      expect(buildTrendingUrl({})).toBe('https://github.com/trending');
+    });
+
+    it('should add language to URL path', () => {
+      expect(buildTrendingUrl({ language: 'typescript' })).toBe(
+        'https://github.com/trending/typescript'
+      );
+      expect(buildTrendingUrl({ language: 'python' })).toBe(
+        'https://github.com/trending/python'
+      );
+    });
+
+    it('should convert language to lowercase', () => {
+      expect(buildTrendingUrl({ language: 'TypeScript' })).toBe(
+        'https://github.com/trending/typescript'
+      );
+      expect(buildTrendingUrl({ language: 'PYTHON' })).toBe(
+        'https://github.com/trending/python'
+      );
+    });
+
+    it('should add since query parameter', () => {
+      expect(buildTrendingUrl({ since: 'daily' })).toBe(
+        'https://github.com/trending?since=daily'
+      );
+      expect(buildTrendingUrl({ since: 'weekly' })).toBe(
+        'https://github.com/trending?since=weekly'
+      );
+      expect(buildTrendingUrl({ since: 'monthly' })).toBe(
+        'https://github.com/trending?since=monthly'
+      );
+    });
+
+    it('should combine language and since parameters', () => {
+      expect(buildTrendingUrl({ language: 'typescript', since: 'weekly' })).toBe(
+        'https://github.com/trending/typescript?since=weekly'
+      );
+      expect(buildTrendingUrl({ language: 'go', since: 'monthly' })).toBe(
+        'https://github.com/trending/go?since=monthly'
+      );
+    });
+
+    it('should encode special characters in language', () => {
+      expect(buildTrendingUrl({ language: 'c++' })).toBe(
+        'https://github.com/trending/c%2B%2B'
+      );
+      expect(buildTrendingUrl({ language: 'c#' })).toBe(
+        'https://github.com/trending/c%23'
+      );
     });
   });
 

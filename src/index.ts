@@ -6,7 +6,7 @@ import { renderCards } from './renderer/index.js';
 async function main() {
   try {
     console.log('Fetching GitHub Trending repositories...');
-    const repos = await fetchTrending(10);
+    const repos = await fetchTrending({ limit: 10, since: 'monthly' });
 
     console.log('Validating data...');
     const validatedRepos = validateRepos(repos);

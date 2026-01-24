@@ -1,12 +1,29 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import type { TrendingRepo } from './types';
+import type { TrendingRepo, TrendingOptions } from './types';
 import { TrendingRepoSchema } from './types';
 
 const GITHUB_TRENDING_URL = 'https://github.com/trending';
 
-export async function fetchTrending(limit: number = 10): Promise<TrendingRepo[]> {
-  const response = await axios.get(GITHUB_TRENDING_URL, {
+export function buildTrendingUrl(options?: TrendingOptions): string {
+  let url = GITHUB_TRENDING_URL;
+
+  if (options?.language) {
+    url += `/${encodeURIComponent(options.language.toLowerCase())}`;
+  }
+
+  if (options?.since) {
+    url += `?since=${options.since}`;
+  }
+
+  return url;
+}
+
+export async function fetchTrending(options?: TrendingOptions): Promise<TrendingRepo[]> {
+  const url = buildTrendingUrl(options);
+  const limit = options?.limit ?? 10;
+
+  const response = await axios.get(url, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
     },

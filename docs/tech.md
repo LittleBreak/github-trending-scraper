@@ -1,7 +1,3 @@
-基于你前端开发工程师的背景，以及你目前正在学习 **TypeScript** 和 **TDD**（测试驱动开发）的情况，我为你设计了一套基于 **Node.js + TypeScript** 的技术方案。
-
-这就不用去切 Python 环境了，直接用你最熟悉的 JavaScript 生态，同时还能作为你练习 TypeScript 和 TDD 的绝佳实战项目。
-
 ### 1. 整体架构设计
 
 我们将这个模块命名为 `GithubTrendingScraper`。

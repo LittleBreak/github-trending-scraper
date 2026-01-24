@@ -35,7 +35,7 @@ export class CardRenderer {
   private templatePath: string;
 
   constructor(templatePath?: string) {
-    this.templatePath = templatePath || path.join(__dirname, 'templates', 'card.html');
+    this.templatePath = templatePath || path.join(__dirname, 'templates', 'card-2.html');
     this.template = fs.readFileSync(this.templatePath, 'utf-8');
   }
 
@@ -65,6 +65,8 @@ export class CardRenderer {
       .replace(/\{\{language\}\}/g, this.escapeHtml(repo.language || 'Unknown'))
       .replace(/\{\{languageColor\}\}/g, getLanguageColor(repo.language))
       .replace(/\{\{stars\}\}/g, this.escapeHtml(repo.stars))
+      .replace(/\{\{forks\}\}/g, this.escapeHtml(repo.forks))
+      .replace(/\{\{firstName\}\}/g, this.escapeHtml(repo.name.charAt(0).toUpperCase()))
       .replace(/\{\{todayStars\}\}/g, this.escapeHtml(repo.todayStars));
 
     const context = await this.browser.newContext({

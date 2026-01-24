@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Bento Grid</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center justify-between p-4 z-20">
+<button class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] text-center">Share Card Preview</h2>
+<div class="size-12"></div> <!-- Spacer for alignment -->
+</header>
+<!-- Main Content: Preview Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center p-4 w-full relative z-10 overflow-hidden">
+<!-- Ambient Background Glow for the App -->
+<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- The Bento Card (3:4 Aspect Ratio) -->
+<div class="relative w-full max-w-[360px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl flex flex-col p-4 gap-3 border border-white/5 group/card transition-all duration-500 hover:shadow-primary/20" id="capture-card">
+<!-- Card Internal Background Gradient -->
+<div class="absolute inset-0 bg-gradient-to-br from-[#1e293b] via-[#0f172a] to-[#020617] z-0"></div>
+<!-- Decorative Internal Glows -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/30 rounded-full blur-[80px] z-0"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
+<!-- Bento Grid Content -->
+<div class="relative z-10 flex flex-col h-full gap-3">
+<!-- 1. Header Tile (Repo Info) -->
+<div class="flex-shrink-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white/20 bg-cover bg-center" data-alt="GitHub user avatar showing a smiling developer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUjvrVo04vQFCAH-_g5Wn2KT1EHFf9jnMGxE9xLxkUIo4rRkaQARZY-rDX6MGcDSq5VvQh163AXYnrRLR71Z-XYmbRIWEvqlZNEWCZ0s03Du57mCrEqR3Vfzr0Q_ar7WSZ-EjRaErcIOrQ2AKguYEqrUnOS4ejrY3E8V-Q6kZ8Wt5imh9F2Q3tOD0OmzdZWvd4MVy-896ENA6GOFzemOtfXENN2NRX5dARzXBYh5M-S3BnUkzW67GfO675-CHoHRb9j-xdQTpjzbP5");'></div>
+<!-- <div class="absolute -bottom-1 -right-1 bg-black rounded-full p-0.5 border border-white/20">
+<span class="material-symbols-outlined text-white text-[14px]">code</span>
+</div> -->
+</div>
+<div class="flex flex-col min-w-0">
+<h1 class="text-white text-xl font-bold truncate">shadcn / ui</h1>
+<div class="flex items-center gap-2 mt-1">
+<!-- <span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-medium border border-primary/20">Public</span>
+<span class="text-slate-400 text-xs">Updated 2h ago</span> -->
+</div>
+</div>
+</div>
+<!-- 2. Description Tile -->
+<div class="flex-shrink-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-5 flex flex-col justify-center min-h-[100px] hover:bg-white/10 transition-colors">
+<p class="text-slate-200 text-base leading-relaxed font-normal line-clamp-3">
+                        Beautifully designed components built with Radix UI and Tailwind CSS. Open source and customizable for your next project.
+                    </p>
+</div>
+<!-- 3. Metrics Grid (2x2) -->
+<div class="flex-1 grid grid-cols-2 gap-3 min-h-0">
+<!-- Stars -->
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors group/stat">
+<div class="flex justify-between items-start">
+<span class="text-slate-400 text-sm font-medium">Total Stars</span>
+<div class="p-1.5 rounded-md bg-yellow-500/10 text-yellow-500 group-hover/stat:bg-yellow-500/20 transition-colors">
+<span class="material-symbols-outlined text-[20px] filled">star</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">45.2k</p>
+</div>
+<!-- Forks -->
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors group/stat">
+<div class="flex justify-between items-start">
+<span class="text-slate-400 text-sm font-medium">Forks</span>
+<div class="p-1.5 rounded-md bg-purple-500/10 text-purple-400 group-hover/stat:bg-purple-500/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">call_split</span>
+</div>
+</div>
+<p class="text-white text-2xl font-bold">2.8k</p>
+</div>
+<!-- Language -->
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors group/stat">
+<div class="flex justify-between items-start">
+<span class="text-slate-400 text-sm font-medium">Language</span>
+<div class="p-1.5 rounded-md bg-blue-500/10 text-blue-400 group-hover/stat:bg-blue-500/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">code_blocks</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.6)]"></span>
+<p class="text-white text-xl font-bold truncate">TypeScript</p>
+</div>
+</div>
+<!-- Trending -->
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors group/stat relative overflow-hidden">
+<!-- Subtle gradient blob for highlight -->
+<div class="absolute -bottom-4 -right-4 w-16 h-16 bg-primary/20 blur-xl rounded-full"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="text-slate-400 text-sm font-medium">Today</span>
+<div class="p-1.5 rounded-md bg-green-500/10 text-green-400 group-hover/stat:bg-green-500/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+</div>
+<div class="relative z-10">
+<p class="text-white text-2xl font-bold">+184</p>
+<!-- <p class="text-primary text-xs font-bold mt-0.5">Top Trending</p> -->
+</div>
+</div>
+</div>
+<!-- Footer branding inside card -->
+<div class="flex items-center justify-center pt-1 pb-1 opacity-40">
+<!-- <span class="text-[10px] text-white tracking-widest uppercase font-semibold">Generated by GitShare</span> -->
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Tool Bar -->
+<div class="p-4 w-full bg-background-light dark:bg-background-dark z-20">
+<div class="max-w-md mx-auto flex items-center justify-between gap-3 bg-[#233648] dark:bg-[#1e293b] p-2 rounded-2xl shadow-xl border border-white/5">
+<div class="flex gap-1">
+<button class="size-11 flex items-center justify-center rounded-xl text-white hover:bg-white/10 transition-colors" title="Refresh Data">
+<span class="material-symbols-outlined text-[24px]">refresh</span>
+</button>
+<button class="size-11 flex items-center justify-center rounded-xl text-white hover:bg-white/10 transition-colors" title="Change Theme">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+</button>
+<button class="size-11 flex items-center justify-center rounded-xl text-white hover:bg-white/10 transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</div>
+<button class="flex-1 h-11 bg-primary hover:bg-blue-600 active:scale-95 transition-all text-white rounded-xl flex items-center justify-center gap-2 px-4 shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="font-bold text-sm tracking-wide">Save Image</span>
+</button>
+</div>
+<!-- Safety space for bottom gesture bar -->
+<div class="h-4"></div>
+</div>
+</body></html>

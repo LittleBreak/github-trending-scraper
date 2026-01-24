@@ -1,0 +1,112 @@
+[
+  {
+    "rank": 1,
+    "owner": "remotion-dev",
+    "name": "remotion",
+    "url": "https://github.com/remotion-dev/remotion",
+    "description": "🎥 Make videos programmatically with React",
+    "language": "TypeScript",
+    "stars": "29001",
+    "forks": "1722",
+    "todayStars": "1168"
+  },
+  {
+    "rank": 2,
+    "owner": "VectifyAI",
+    "name": "PageIndex",
+    "url": "https://github.com/VectifyAI/PageIndex",
+    "description": "📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG",
+    "language": "Python",
+    "stars": "7788",
+    "forks": "591",
+    "todayStars": "1350"
+  },
+  {
+    "rank": 3,
+    "owner": "OpenBMB",
+    "name": "UltraRAG",
+    "url": "https://github.com/OpenBMB/UltraRAG",
+    "description": "UltraRAG v3: A Low-Code MCP Framework for Building Complex and Innovative RAG Pipelines",
+    "language": "Python",
+    "stars": "3259",
+    "forks": "246",
+    "todayStars": "130"
+  },
+  {
+    "rank": 4,
+    "owner": "browser-use",
+    "name": "browser-use",
+    "url": "https://github.com/browser-use/browser-use",
+    "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+    "language": "Python",
+    "stars": "76575",
+    "forks": "9116",
+    "todayStars": "205"
+  },
+  {
+    "rank": 5,
+    "owner": "block",
+    "name": "goose",
+    "url": "https://github.com/block/goose",
+    "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+    "language": "Rust",
+    "stars": "27801",
+    "forks": "2507",
+    "todayStars": "411"
+  },
+  {
+    "rank": 6,
+    "owner": "Blaizzy",
+    "name": "mlx-audio",
+    "url": "https://github.com/Blaizzy/mlx-audio",
+    "description": "A text-to-speech (TTS), speech-to-text (STT) and speech-to-speech (STS) library built on Apple's MLX framework, providing efficient speech analysis on Apple Silicon.",
+    "language": "Python",
+    "stars": "3395",
+    "forks": "285",
+    "todayStars": "63"
+  },
+  {
+    "rank": 7,
+    "owner": "simstudioai",
+    "name": "sim",
+    "url": "https://github.com/simstudioai/sim",
+    "description": "Open-source platform to build and deploy AI agent workflows.",
+    "language": "TypeScript",
+    "stars": "26075",
+    "forks": "3258",
+    "todayStars": "191"
+  },
+  {
+    "rank": 8,
+    "owner": "microsoft",
+    "name": "VibeVoice",
+    "url": "https://github.com/microsoft/VibeVoice",
+    "description": "Open-Source Frontier Voice AI",
+    "language": "Python",
+    "stars": "21461",
+    "forks": "2352",
+    "todayStars": "261"
+  },
+  {
+    "rank": 9,
+    "owner": "putyy",
+    "name": "res-downloader",
+    "url": "https://github.com/putyy/res-downloader",
+    "description": "视频号、小程序、抖音、快手、小红书、直播流、m3u8、酷狗、QQ音乐等常见网络资源下载!",
+    "language": "Go",
+    "stars": "14247",
+    "forks": "1777",
+    "todayStars": "394"
+  },
+  {
+    "rank": 10,
+    "owner": "AI4Finance-Foundation",
+    "name": "FinRobot",
+    "url": "https://github.com/AI4Finance-Foundation/FinRobot",
+    "description": "FinRobot: An Open-Source AI Agent Platform for Financial Analysis using LLMs 🚀 🚀 🚀",
+    "language": "Jupyter Notebook",
+    "stars": "5044",
+    "forks": "926",
+    "todayStars": "53"
+  }
+]

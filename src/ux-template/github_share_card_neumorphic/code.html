@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Neumorphic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "accent-orange": "#f97316",
+                        "background-light": "#e0e5ec", /* Adjusted for Neumorphism base */
+                        "background-dark": "#2a2d33", /* Dark neumorphic base */
+                        "neu-shadow-light": "#ffffff",
+                        "neu-shadow-dark": "#a3b1c6",
+                        "neu-shadow-dark-mode-light": "#3b3e46",
+                        "neu-shadow-dark-mode-dark": "#1e2024",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                    boxShadow: {
+                        'neu-flat': '9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)',
+                        'neu-flat-dark': '9px 9px 16px rgb(30,32,36,0.6), -9px -9px 16px rgba(59,62,70, 0.5)',
+                        'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
+                        'neu-pressed-dark': 'inset 6px 6px 10px 0 rgba(10,10,10, 0.2), inset -6px -6px 10px 0 rgba(80,80,80, 0.1)',
+                        'neu-convex': 'linear-gradient(145deg, #f0f5fd, #caccce)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Neumorphic Utilities */
+        .neu-flat {
+            background: #e0e5ec;
+            box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+        }
+        .dark .neu-flat {
+            background: #2a2d33;
+            box-shadow: 9px 9px 16px #1e2024, -9px -9px 16px #3b3e46;
+        }
+
+        .neu-pressed {
+            background: #e0e5ec;
+            box-shadow: inset 6px 6px 10px #a3b1c6, inset -6px -6px 10px #ffffff;
+        }
+        .dark .neu-pressed {
+            background: #2a2d33;
+            box-shadow: inset 6px 6px 10px #1e2024, inset -6px -6px 10px #3b3e46;
+        }
+        
+        .neu-icon-btn {
+            background: linear-gradient(145deg, #f0f5fd, #caccce);
+            box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
+        }
+        .dark .neu-icon-btn {
+            background: linear-gradient(145deg, #2d3036, #26282e);
+            box-shadow: 5px 5px 10px #1e2024, -5px -5px 10px #3b3e46;
+        }
+
+        /* Aspect ratio utility for the card */
+        .aspect-3-4 {
+            aspect-ratio: 3 / 4;
+        }
+        
+        /* Font smoothing */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-600 dark:text-slate-300 transition-colors duration-300">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto">
+<!-- Header -->
+<header class="flex items-center justify-between p-6 pb-2 z-10">
+<button class="neu-icon-btn flex size-10 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<h1 class="text-slate-700 dark:text-slate-200 text-lg font-bold tracking-tight">Share Card Generator</h1>
+<button class="neu-icon-btn flex size-10 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-6 w-full gap-8">
+<!-- Preview Canvas (3:4 Ratio) -->
+<!-- This is the container that simulates the phone screen export area -->
+<div class="relative w-full max-w-[340px] aspect-3-4 rounded-3xl neu-flat p-6 flex flex-col items-center justify-between group overflow-hidden">
+<!-- Card Header -->
+<div class="flex flex-col items-center w-full mt-4">
+<!-- Avatar with inset shadow wrapper -->
+<div class="relative p-1 rounded-full neu-flat mb-4">
+<div class="size-20 rounded-full overflow-hidden border-2 border-[#e0e5ec] dark:border-[#2a2d33] shadow-inner relative">
+<img alt="Abstract gradient avatar pattern" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE9C_4oxrtWcHqZfLwPjAJ46dMXMDEyugXizQH51HEBKDzJ4hruEqf2E3LslHo8o0RyayHsdrcjFIouv2D8KGCElOn8NiF2WoiG6LEyaAhfDdWO7r737t_2lgAbLVDaJPF3pXOm-hpEKKt9FFrkJ7u01DVZov8caJ-RwfsC-ta0AvMsMkM8f7eMsssxqt_rK4r-ZrrOs31fa9UhJS18S2EMJe-H-yo3oMphM_bT3K-zxyl-eiB5Ze6efTIVGRt6rJZfqnM8zrJSpGV"/>
+</div>
+<!-- Verified Badge -->
+<div class="absolute bottom-1 right-1 bg-primary text-white p-1 rounded-full shadow-md flex items-center justify-center border-2 border-[#e0e5ec] dark:border-[#2a2d33]">
+<span class="material-symbols-outlined text-[12px] font-bold leading-none">check</span>
+</div>
+</div>
+<h2 class="text-slate-800 dark:text-slate-100 text-xl font-bold tracking-tight mb-1 text-center">facebook/react</h2>
+<p class="text-slate-500 dark:text-slate-400 text-xs text-center leading-relaxed px-2 font-medium line-clamp-3">
+                        A declarative, efficient, and flexible JavaScript library for building user interfaces.
+                    </p>
+</div>
+<!-- Stats Grid -->
+<div class="w-full grid grid-cols-3 gap-3 mt-2">
+<div class="flex flex-col items-center justify-center py-3 px-1 rounded-xl neu-pressed">
+<span class="material-symbols-outlined text-slate-400 text-[20px] mb-1">star</span>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-bold">213k</span>
+<span class="text-slate-400 dark:text-slate-500 text-[10px] font-medium uppercase tracking-wider">Stars</span>
+</div>
+<div class="flex flex-col items-center justify-center py-3 px-1 rounded-xl neu-pressed">
+<span class="material-symbols-outlined text-slate-400 text-[20px] mb-1">call_split</span>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-bold">45k</span>
+<span class="text-slate-400 dark:text-slate-500 text-[10px] font-medium uppercase tracking-wider">Forks</span>
+</div>
+<div class="flex flex-col items-center justify-center py-3 px-1 rounded-xl neu-pressed">
+<span class="material-symbols-outlined text-slate-400 text-[20px] mb-1">code</span>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-bold">JS</span>
+<span class="text-slate-400 dark:text-slate-500 text-[10px] font-medium uppercase tracking-wider">Lang</span>
+</div>
+</div>
+<!-- Trend Highlight -->
+<div class="w-full mt-2">
+<div class="w-full p-4 rounded-2xl neu-flat flex items-center justify-between border border-white/40 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shadow-[inset_2px_2px_5px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="text-primary font-bold text-sm">+154 Stars</span>
+<span class="text-slate-400 text-[10px] font-medium">Trending Today</span>
+</div>
+</div>
+<!-- Mini Chart Visual -->
+<div class="h-8 w-16 flex items-end justify-end gap-1 opacity-60">
+<div class="w-1 bg-primary/40 h-[40%] rounded-t-sm"></div>
+<div class="w-1 bg-primary/60 h-[70%] rounded-t-sm"></div>
+<div class="w-1 bg-primary/30 h-[30%] rounded-t-sm"></div>
+<div class="w-1 bg-primary h-[90%] rounded-t-sm shadow-[0_0_8px_rgba(19,127,236,0.4)]"></div>
+<div class="w-1 bg-primary/50 h-[60%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Footer / Branding -->
+<div class="w-full flex justify-center items-center opacity-40 mt-auto pt-4">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">Generated with GitCard</span>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute -top-10 -right-10 size-32 rounded-full bg-gradient-to-br from-white/40 to-transparent blur-2xl pointer-events-none"></div>
+</div>
+</main>
+<!-- Bottom Sheet Controls -->
+<div class="w-full bg-[#e0e5ec] dark:bg-[#2a2d33] rounded-t-[2rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] p-6 pb-8 z-20">
+<div class="w-12 h-1 bg-slate-300 dark:bg-slate-600 rounded-full mx-auto mb-6"></div>
+<div class="flex flex-col gap-6">
+<!-- Input Field -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1">Repository</label>
+<div class="relative w-full flex items-center">
+<input class="w-full neu-pressed rounded-xl py-4 pl-12 pr-4 text-slate-700 dark:text-slate-200 font-medium bg-transparent border-none focus:ring-0 focus:outline-none placeholder:text-slate-400" placeholder="username/repo" type="text" value="facebook/react"/>
+<span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+</div>
+</div>
+<!-- Theme Toggle & Export -->
+<div class="flex items-center gap-4">
+<!-- Color Toggle Segment -->
+<div class="flex p-1.5 rounded-xl neu-pressed gap-1">
+<button class="size-10 rounded-lg bg-[#e0e5ec] dark:bg-[#2a2d33] shadow-[3px_3px_6px_#bebebe,-3px_-3px_6px_#ffffff] dark:shadow-[3px_3px_6px_#1e2024,-3px_-3px_6px_#3b3e46] flex items-center justify-center text-primary transition-all active:scale-95">
+<div class="size-3 rounded-full bg-primary"></div>
+</button>
+<button class="size-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<div class="size-3 rounded-full bg-accent-orange opacity-40"></div>
+</button>
+</div>
+<!-- Export Button -->
+<button class="flex-1 h-14 neu-flat rounded-xl flex items-center justify-center gap-2 text-primary font-bold tracking-wide active:scale-[0.98] transition-all hover:text-primary/80 group relative overflow-hidden">
+<!-- Pseudo-element for inner glow/shine -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+<span class="material-symbols-outlined">download</span>
+<span>Export Image</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Terminal</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "ide-bg": "#1e293b",
+                        "ide-header": "#0f172a",
+                        "syntax-keyword": "#c084fc", /* purple-400 */
+                        "syntax-string": "#4ade80", /* green-400 */
+                        "syntax-func": "#60a5fa", /* blue-400 */
+                        "syntax-comment": "#64748b", /* slate-500 */
+                        "syntax-number": "#fbbf24", /* amber-400 */
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(19, 91, 236, 0.15)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for IDE look if content overflows */
+        .ide-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .ide-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .ide-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .syntax-line {
+            counter-increment: line;
+        }
+        .syntax-line::before {
+            content: counter(line);
+            display: inline-block;
+            width: 1.5rem;
+            margin-right: 1rem;
+            color: #475569;
+            text-align: right;
+            font-size: 0.75rem;
+            line-height: 1.5rem;
+            user-select: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display selection:bg-primary/30 selection:text-white">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50">
+<button class="text-white flex size-12 shrink-0 items-center justify-center hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Terminal Card</h2>
+<button class="flex w-12 items-center justify-end hover:opacity-80 transition-opacity">
+<p class="text-[#92a4c9] text-base font-bold leading-normal tracking-[0.015em] shrink-0">Export</p>
+</button>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 flex items-center justify-center p-4 md:p-8 overflow-hidden relative">
+<!-- Abstract Background Glows -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-sm h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+<!-- The Terminal Card (3:4 Aspect Ratio Container) -->
+<div class="relative w-full max-w-sm aspect-[3/4] bg-ide-bg rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden ring-1 ring-white/10 group/terminal transition-transform duration-500 hover:scale-[1.02]">
+<!-- Window Title Bar -->
+<div class="h-10 bg-ide-header border-b border-white/5 flex items-center px-4 justify-between shrink-0">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-[#FF5F56] shadow-sm hover:brightness-110 cursor-pointer"></div>
+<div class="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-sm hover:brightness-110 cursor-pointer"></div>
+<div class="w-3 h-3 rounded-full bg-[#27C93F] shadow-sm hover:brightness-110 cursor-pointer"></div>
+</div>
+<div class="text-gray-500 text-xs font-medium tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+                    bash — 80x24
+                </div>
+<div class="w-12"></div> <!-- Spacer for centering -->
+</div>
+<!-- Editor Area -->
+<div class="flex-1 p-4 overflow-hidden relative flex flex-col font-mono text-sm sm:text-base leading-6">
+<!-- Watermark / Background Texture -->
+<div class="absolute inset-0 pointer-events-none opacity-5 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+<!-- Code Lines -->
+<div class="relative z-10 flex flex-col gap-1 h-full">
+<!-- Line 1: Command -->
+<div class="flex items-start">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right">1</span>
+<div class="break-all">
+<span class="text-syntax-string font-bold">➜</span>
+<span class="text-syntax-func font-bold">~</span>
+<span class="text-white">git remote show origin</span>
+</div>
+</div>
+<!-- Line 2: Response -->
+<div class="flex items-start">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right">2</span>
+<div class="text-gray-500 text-xs sm:text-sm break-all">
+                            Fetch URL: https://github.com/facebook/react
+                        </div>
+</div>
+<!-- Line 3: Spacer -->
+<div class="flex items-start">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right">3</span>
+<div> </div>
+</div>
+<!-- Line 4: Repo Definition -->
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">4</span>
+<div>
+<span class="text-syntax-keyword">export const</span>
+<span class="text-syntax-number">REPO</span>
+<span class="text-white">=</span>
+<span class="text-syntax-string">"React"</span><span class="text-white">;</span>
+</div>
+</div>
+<!-- Line 5: Description Comment -->
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">5</span>
+<div class="text-syntax-comment italic">
+                            // The library for web and native user interfaces.
+                        </div>
+</div>
+<!-- Line 6: Spacer -->
+<div class="flex items-start">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right">6</span>
+<div> </div>
+</div>
+<!-- Line 7: Stats Object Start -->
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">7</span>
+<div>
+<span class="text-syntax-keyword">const</span>
+<span class="text-syntax-func">stats</span>
+<span class="text-white">= {</span>
+</div>
+</div>
+<!-- Line 8-11: Stats Keys -->
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">8</span>
+<div class="pl-4">
+<span class="text-syntax-func">"stars"</span>: 
+                            <span class="text-syntax-number">213.4k</span>,
+                        </div>
+</div>
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">9</span>
+<div class="pl-4">
+<span class="text-syntax-func">"forks"</span>: 
+                            <span class="text-syntax-number">44.5k</span>,
+                        </div>
+</div>
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">10</span>
+<div class="pl-4">
+<span class="text-syntax-func">"lang"</span>: 
+                            <span class="text-syntax-string">"JavaScript"</span>,
+                        </div>
+</div>
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">11</span>
+<div class="pl-4">
+<span class="text-syntax-func">"tags"</span>: 
+                            <span class="text-white">[</span><span class="text-syntax-string">"ui"</span>, <span class="text-syntax-string">"library"</span><span class="text-white">]</span>
+</div>
+</div>
+<!-- Line 12: Stats Object End -->
+<div class="flex items-start group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">12</span>
+<div class="text-white">};</div>
+</div>
+<!-- Line 13: Spacer -->
+<div class="flex items-start">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right">13</span>
+<div> </div>
+</div>
+<!-- Line 14: Return / Exit -->
+<div class="flex items-start mt-auto group/line">
+<span class="text-gray-600 select-none mr-4 text-xs pt-1 w-4 text-right group-hover:text-gray-400 transition-colors">14</span>
+<div>
+<span class="text-syntax-keyword">return</span>
+<span class="text-white">process.</span><span class="text-syntax-func">exit</span><span class="text-white">(</span><span class="text-syntax-number">0</span><span class="text-white">);</span>
+<span class="inline-block w-2.5 h-5 bg-primary ml-1 align-text-bottom animate-pulse"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Bottom Bar (Status) -->
+<div class="bg-primary/10 h-8 flex items-center px-4 justify-between border-t border-white/5 text-[10px] uppercase tracking-wider text-primary font-bold">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Running
+                </div>
+<div>UTF-8</div>
+<div>JavaScript</div>
+</div>
+</div>
+</main>
+<!-- Toolbar -->
+<div class="bg-background-dark/80 backdrop-blur-md sticky bottom-0 z-50 border-t border-white/5 pb-6">
+<div class="flex justify-between gap-2 px-4 py-3 max-w-lg mx-auto w-full">
+<div class="flex gap-2">
+<button class="p-2 text-white hover:bg-white/10 rounded-lg transition-colors group relative">
+<span class="material-symbols-outlined" style="font-size: 24px;">refresh</span>
+<span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Regenerate</span>
+</button>
+<button class="p-2 text-white hover:bg-white/10 rounded-lg transition-colors group relative">
+<span class="material-symbols-outlined" style="font-size: 24px;">settings</span>
+<span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Customize</span>
+</button>
+</div>
+<button class="flex flex-1 max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-6 shadow-lg shadow-primary/30 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+<span class="truncate">Save Image</span>
+</button>
+</div>
+</div>
+</body></html>

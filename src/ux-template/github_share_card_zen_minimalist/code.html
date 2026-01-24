@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Zen Minimalist</title>
+<!-- Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2060df",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "paper-light": "#ffffff",
+                        "paper-dark": "#1e2433",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom thin scrollbar if needed */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.5);
+            border-radius: 20px;
+        }
+        
+        /* Ultra thin material symbols */
+        .material-symbols-outlined.thin {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-outlined.filled {
+             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0e121b] dark:text-white font-display transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+<div class="flex items-center p-4 pb-3 justify-between max-w-lg mx-auto w-full">
+<button class="text-[#0e121b] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined thin" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-[#0e121b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Card Generator</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="text-[#506795] dark:text-gray-400 hover:text-primary transition-colors text-sm font-bold leading-normal tracking-[0.015em] shrink-0">Reset</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center w-full max-w-lg mx-auto pb-24">
+<!-- Input Section -->
+<div class="w-full px-4 pt-6 pb-2">
+<div class="flex flex-col gap-2">
+<label class="text-[#0e121b] dark:text-gray-300 text-sm font-semibold uppercase tracking-wider pl-1">Target Repository</label>
+<div class="flex w-full items-stretch rounded-xl shadow-sm transition-shadow hover:shadow-md">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-xl border border-gray-200 dark:border-gray-700 bg-paper-light dark:bg-paper-dark text-[#0e121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 focus:border-primary h-14 placeholder:text-gray-400 p-4 text-base font-medium leading-normal transition-all" placeholder="owner/repo" value="facebook/react"/>
+<button class="text-white bg-primary hover:bg-primary/90 flex items-center justify-center px-5 rounded-r-xl border-l-0 transition-colors">
+<span class="material-symbols-outlined thin text-white" style="font-size: 24px;">autorenew</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Preview Container -->
+<div class="w-full px-8 py-6 flex justify-center">
+<!-- The Zen Card (3:4 Ratio) -->
+<!-- The card is explicitly white to match the "Zen Minimalist" print-like request, even in dark mode context -->
+<div class="relative group w-full max-w-[340px] aspect-[3/4] bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-sm overflow-hidden flex flex-col justify-between p-8 border border-gray-100">
+<!-- Decorative Background Gradient (Subtle) -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50/50 to-transparent rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none opacity-60"></div>
+<!-- Card Header: Avatar & Owner -->
+<div class="relative z-10 flex items-center gap-3 opacity-90">
+<div class="size-8 rounded-full bg-gray-100 overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Abstract gradient avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDup0gtCgkx9GIC6aUFg7ouJls6sBfCAtlUiApRn7VWx1zm9CsZ1Pu4OFUa_0y7tYaY7Lf6kutQBVm2ss7W-sT9oxdEiigWkLJejcBBaXJdSdYr3v4AuPR0plWHFcnc1zNybJdzbwUGNFsxxwKUaFAO7Drmju37dvv-Du2ROtqRJAKFUL8GNhJxod2RK4aIdIVG4tlo088KgqLWwj8FFTnufoxjewNfODSA3Ez1EuaJ5v11WZru-x2acby6NgsN4Rrw34eVKTf49UKF"/>
+</div>
+<span class="text-gray-500 font-display text-xs font-bold tracking-[0.2em] uppercase">Facebook</span>
+</div>
+<!-- Card Body: Asymmetric Typography -->
+<div class="relative z-10 flex-1 flex flex-col justify-center items-start mt-4">
+<!-- Main Title with artistic spacing -->
+<h1 class="text-gray-900 text-6xl font-light tracking-tighter leading-[0.9] mb-6">
+                            re<br/><span class="text-primary italic font-light">act</span>.
+                        </h1>
+<!-- Description with hairline left border -->
+<div class="pl-4 border-l border-gray-200">
+<p class="text-gray-500 text-sm font-medium leading-relaxed max-w-[200px]">
+                                The library for web and native user interfaces. 
+                                <span class="block mt-2 text-xs text-gray-400 font-normal">Build user interfaces out of individual pieces called components.</span>
+</p>
+</div>
+</div>
+<!-- Card Footer: Stats & QR -->
+<div class="relative z-10 pt-6 border-t border-gray-100 flex items-end justify-between">
+<!-- Stats Cluster -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 group/stat">
+<span class="material-symbols-outlined thin text-gray-400 group-hover/stat:text-primary transition-colors text-xl">star</span>
+<div class="flex flex-col">
+<span class="text-gray-900 text-xl font-light leading-none">216k</span>
+<span class="text-gray-400 text-[10px] uppercase tracking-wider font-semibold mt-0.5">Stars</span>
+</div>
+</div>
+<div class="flex items-center gap-3 group/stat">
+<span class="material-symbols-outlined thin text-gray-400 group-hover/stat:text-primary transition-colors text-xl">call_split</span>
+<div class="flex flex-col">
+<span class="text-gray-900 text-xl font-light leading-none">46.2k</span>
+<span class="text-gray-400 text-[10px] uppercase tracking-wider font-semibold mt-0.5">Forks</span>
+</div>
+</div>
+</div>
+<!-- QR Code Area -->
+<div class="flex flex-col items-end gap-2">
+<div class="bg-gray-900 p-1.5 rounded-sm">
+<!-- Simulated QR Code -->
+<div class="w-12 h-12 bg-white flex items-center justify-center p-0.5" data-alt="QR Code for repository link">
+<div class="w-full h-full grid grid-cols-4 grid-rows-4 gap-0.5">
+<div class="bg-black col-span-2 row-span-2 rounded-[1px]"></div>
+<div class="bg-black col-start-4 row-start-1 rounded-[1px]"></div>
+<div class="bg-black col-start-1 row-start-4 rounded-[1px]"></div>
+<div class="bg-black col-start-3 row-start-3 rounded-[1px]"></div>
+<div class="bg-black col-start-4 row-start-4 rounded-[1px]"></div>
+<div class="bg-black col-start-2 row-start-3 rounded-[1px]"></div>
+</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-300 font-mono">SCAN ME</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Style Options / Toggles -->
+<div class="w-full max-w-lg px-6 flex items-center justify-between gap-4 mt-2">
+<div class="flex gap-2">
+<button class="size-8 rounded-full bg-white border border-gray-200 shadow-sm focus:ring-2 ring-primary ring-offset-2"></button>
+<button class="size-8 rounded-full bg-neutral-50 border border-gray-200 shadow-sm focus:ring-2 ring-primary ring-offset-2"></button>
+<button class="size-8 rounded-full bg-stone-50 border border-gray-200 shadow-sm focus:ring-2 ring-primary ring-offset-2"></button>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+<span class="material-symbols-outlined thin text-base">aspect_ratio</span>
+                    3:4 Portrait
+                </div>
+</div>
+</main>
+<!-- Floating Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pt-8 z-40">
+<div class="max-w-lg mx-auto flex gap-3">
+<button class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-paper-light dark:bg-paper-dark border border-gray-200 dark:border-gray-700 text-[#0e121b] dark:text-white shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined thin" style="font-size: 24px;">shuffle</span>
+</button>
+<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-6 bg-primary hover:bg-blue-600 text-white gap-3 shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined filled" style="font-size: 20px;">ios_share</span>
+<span class="text-base font-bold leading-normal tracking-[0.015em] truncate">Export to Xiaohongshu</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

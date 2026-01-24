@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card - Claymorphism</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#42f099",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "clay-white": "#f0f4f8",
+                        "clay-mint": "#e0f7ef",
+                        "clay-lavender": "#eef2ff",
+                        "clay-peach": "#fff1eb",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "2xl": "4rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "clay-card": "12px 12px 24px rgba(170, 180, 190, 0.4), -12px -12px 24px rgba(255, 255, 255, 1), inset -4px -4px 8px rgba(170, 180, 190, 0.1), inset 4px 4px 8px rgba(255, 255, 255, 0.8)",
+                        "clay-pill": "6px 6px 12px rgba(170, 180, 190, 0.3), -6px -6px 12px rgba(255, 255, 255, 1), inset 2px 2px 4px rgba(255, 255, 255, 0.8), inset -2px -2px 4px rgba(0, 0, 0, 0.05)",
+                        "clay-convex": "inset 4px 4px 8px rgba(255, 255, 255, 1), inset -4px -4px 8px rgba(0, 0, 0, 0.05), 8px 8px 16px rgba(170, 180, 190, 0.2)",
+                        "clay-button": "8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff",
+                        "clay-button-active": "inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="flex items-center px-4 py-4 justify-between sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<button class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">GitClay Preview</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Editor Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-4">
+<!-- Workspace / Background Canvas for the Card -->
+<!-- We center the 3:4 aspect ratio card here -->
+<div class="relative w-full max-w-[360px] aspect-[3/4] flex flex-col items-center justify-center rounded-[2.5rem] p-6 transition-all duration-500 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow-inner border border-white/40">
+<!-- Background decorative blobs -->
+<div class="absolute top-[-20px] left-[-20px] w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+<div class="absolute bottom-[-20px] right-[-20px] w-40 h-40 bg-purple-300/20 rounded-full blur-2xl"></div>
+<!-- THE CLAY CARD -->
+<div class="relative z-10 w-full flex-1 flex flex-col bg-clay-white rounded-[2.5rem] shadow-clay-card p-6 overflow-hidden">
+<!-- Decorative Gloss on top-left (Plastic look) -->
+<div class="absolute top-4 left-4 w-3/4 h-3/4 bg-gradient-to-br from-white/80 to-transparent rounded-full opacity-40 blur-xl pointer-events-none"></div>
+<!-- Profile Avatar (Breaking out slightly) -->
+<div class="relative flex justify-center -mt-12 mb-4">
+<div class="relative p-2 rounded-full bg-clay-white shadow-clay-pill">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-clay-white shadow-inner" data-alt="User profile picture showing a smiling developer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtdfElEuQoKd5gl4UpievefF7sW4Kh1Q-9Ai-L5LQ9v5rEguyI24j4gCrZXf7fg5w_chi5GKCmD5hBrSaplxdBup2fyi6Kum5Q2LjfXZJNE26FjPJbKZ5hiSONSrVGExQwyalbOITYsCmYTdl3u4b7Umg0D-OTK2SHX6h_dCulPY0n5dAp98KZdmsSUfr0u86B8gcXKlDJ-J5HukVMh2e3y-DsD3oZ6sEVZnJ1YT6WTZw05DGaLwoSyuJk5JZqMQlekEUv7xWcR6vh'); background-size: cover; background-position: center;"></div>
+<!-- Online Status / Badge -->
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-primary rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white">check</span>
+</div>
+</div>
+</div>
+<!-- Header Text -->
+<div class="flex flex-col items-center text-center mb-6 z-10">
+<h1 class="text-[#2d3748] text-2xl font-bold tracking-tight mb-1">shadcn / ui</h1>
+<div class="flex items-center gap-1.5 opacity-70">
+<span class="material-symbols-outlined text-sm text-[#4c9a73]">history</span>
+<span class="text-[#4c9a73] text-xs font-medium uppercase tracking-wide">Updated 2h ago</span>
+</div>
+</div>
+<!-- Description -->
+<div class="flex-1 flex flex-col items-center justify-start text-center mb-6 z-10 relative">
+<!-- Soft inset area for text to sit in -->
+<div class="bg-[#eef2f6] rounded-2xl p-4 shadow-[inset_2px_2px_5px_rgba(0,0,0,0.05),inset_-2px_-2px_5px_rgba(255,255,255,1)] w-full">
+<p class="text-slate-600 text-[15px] font-medium leading-relaxed">
+                                Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
+                            </p>
+</div>
+</div>
+<!-- Language Chip (Floating) -->
+<div class="flex justify-center mb-6 z-10">
+<div class="flex items-center gap-2 px-4 py-2 bg-clay-mint rounded-full shadow-clay-pill text-[#0f5132]">
+<span class="w-3 h-3 rounded-full bg-[#42f099] shadow-[0_0_8px_#42f099]"></span>
+<span class="text-sm font-bold">TypeScript</span>
+</div>
+</div>
+<!-- Stats Row (Inflated Pills) -->
+<div class="flex items-center justify-between gap-3 w-full mt-auto z-10">
+<!-- Stars -->
+<div class="flex flex-col items-center justify-center flex-1 h-20 bg-clay-white rounded-2xl shadow-clay-convex group cursor-pointer transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-amber-400 mb-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-slate-700 font-bold text-sm">45.2k</span>
+<span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Stars</span>
+</div>
+<!-- Forks -->
+<div class="flex flex-col items-center justify-center flex-1 h-20 bg-clay-lavender rounded-2xl shadow-clay-convex group cursor-pointer transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-purple-400 mb-1" style="font-variation-settings: 'FILL' 1;">call_split</span>
+<span class="text-slate-700 font-bold text-sm">3.4k</span>
+<span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Forks</span>
+</div>
+<!-- Issues -->
+<div class="flex flex-col items-center justify-center flex-1 h-20 bg-clay-peach rounded-2xl shadow-clay-convex group cursor-pointer transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-orange-400 mb-1">adjust</span>
+<span class="text-slate-700 font-bold text-sm">128</span>
+<span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Issues</span>
+</div>
+</div>
+</div>
+<!-- Watermark -->
+<div class="absolute bottom-3 text-center w-full opacity-40">
+<p class="text-[10px] font-bold tracking-widest text-slate-500 uppercase flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[12px]">code</span> Generated by GitClay
+                    </p>
+</div>
+</div>
+<p class="mt-8 text-center text-slate-400 text-xs font-medium dark:text-slate-500">
+                Preview optimized for Xiaohongshu (3:4)
+            </p>
+</main>
+<!-- Floating Action Dock -->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+<div class="flex items-center gap-4 px-4 py-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border border-white/20 dark:border-white/5">
+<button class="group relative flex flex-col items-center justify-center w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all hover:-translate-y-1 hover:shadow-lg">
+<span class="material-symbols-outlined">palette</span>
+<span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-black text-white text-[10px] px-2 py-1 rounded-md">Theme</span>
+</button>
+<button class="group relative flex flex-col items-center justify-center w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all hover:-translate-y-1 hover:shadow-lg">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-black text-white text-[10px] px-2 py-1 rounded-md">Content</span>
+</button>
+<!-- Main Action Button -->
+<button class="group relative flex items-center justify-center w-16 h-16 -mt-6 rounded-full bg-primary text-background-dark shadow-[0_10px_20px_-5px_rgba(66,240,153,0.5)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(66,240,153,0.6)]">
+<span class="material-symbols-outlined text-3xl">ios_share</span>
+</button>
+<button class="group relative flex flex-col items-center justify-center w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all hover:-translate-y-1 hover:shadow-lg">
+<span class="material-symbols-outlined">image</span>
+<span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-black text-white text-[10px] px-2 py-1 rounded-md">Bg</span>
+</button>
+<button class="group relative flex flex-col items-center justify-center w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all hover:-translate-y-1 hover:shadow-lg">
+<span class="material-symbols-outlined">settings</span>
+<span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-black text-white text-[10px] px-2 py-1 rounded-md">Settings</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

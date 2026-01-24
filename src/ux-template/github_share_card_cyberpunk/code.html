@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Cyberpunk</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d80",
+                        "secondary": "#00f3ff",
+                        "background-light": "#f8f5f7",
+                        "background-dark": "#12080d",
+                        "surface-dark": "#1f1016",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'neon-pink': '0 0 10px rgba(242, 13, 128, 0.5), 0 0 20px rgba(242, 13, 128, 0.3)',
+                        'neon-blue': '0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3)',
+                        'neon-text': '0 0 5px rgba(242, 13, 128, 0.8)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12080d; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 3px;
+        }
+        
+        /* Tech border effect */
+        .tech-border {
+            position: relative;
+            background: rgba(20, 20, 20, 0.6);
+            clip-path: polygon(
+                10px 0, 100% 0, 
+                100% calc(100% - 10px), calc(100% - 10px) 100%, 
+                0 100%, 0 10px
+            );
+        }
+        
+        .tech-corner-accents::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 10px; height: 10px;
+            border-top: 2px solid #f20d80;
+            border-left: 2px solid #f20d80;
+        }
+        .tech-corner-accents::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 10px; height: 10px;
+            border-bottom: 2px solid #00f3ff;
+            border-right: 2px solid #00f3ff;
+        }
+
+        /* Scanline effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col overflow-hidden selection:bg-primary selection:text-white">
+<!-- Top Bar -->
+<div class="flex items-center justify-between p-4 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 border-b border-gray-200 dark:border-white/5">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<h2 class="text-lg font-bold tracking-tight">Share Card</h2>
+<button class="flex items-center justify-center px-4 h-10 rounded-full bg-primary text-white text-sm font-bold shadow-neon-pink hover:bg-primary/90 transition-all gap-2">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span>Export</span>
+</button>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-4 lg:p-8 overflow-y-auto w-full">
+<!-- Canvas Container (Phone Scale) -->
+<div class="relative w-full max-w-sm mx-auto shadow-2xl rounded-2xl overflow-hidden ring-1 ring-white/10">
+<!-- The Card (3:4 Aspect Ratio) -->
+<div class="relative w-full aspect-[3/4] bg-[#050505] overflow-hidden group">
+<!-- Cyberpunk Background Layers -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(242,13,128,0.15),transparent_70%)]"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(0,243,255,0.1),transparent_50%)]"></div>
+<div class="absolute inset-0 scanlines opacity-30 pointer-events-none z-20"></div>
+<!-- Giant Background Rank Number -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 text-[180px] leading-none font-black text-white/[0.03] select-none pointer-events-none tracking-tighter whitespace-nowrap z-0">
+                    #01
+                </div>
+<!-- Card Content -->
+<div class="relative z-10 flex flex-col h-full p-6 sm:p-8 justify-between">
+<!-- Header -->
+<div class="flex flex-col items-center gap-5 pt-4">
+<!-- Avatar with Glow -->
+<div class="relative">
+<div class="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary to-secondary opacity-70 blur-md animate-pulse"></div>
+<div class="relative h-28 w-28 rounded-xl bg-gray-900 border-2 border-white/20 p-1">
+<img alt="Profile" class="h-full w-full object-cover rounded-lg" data-alt="User avatar showing a person wearing futuristic glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPmALOzY0D1uPbTyFQX9zvPwdm-YNBUxpQwirt_ENGYObsIKofhqNH2ETytA3tAG9r5Gbo2tYvstU8KCBGv5h7jrjuF9ipjntGR-HtaQ8wLADJDfCEGmEBETfTntuGgxkXyL6MST4XdUk6cLO3ZztbHvpbxshiwV0K8C28jUZV12lOme_9tO9UutkDq5Gp-BMlz1YBW9Htq07oB47gCmngYVWDcCLdcYFN7fxL7yk4-ZumL2H2c7XWxyehzHooTjw-8AKoAAMfptS2"/>
+</div>
+<!-- Rank Badge -->
+<div class="absolute -bottom-3 -right-3 bg-black border border-primary text-primary px-2 py-0.5 text-xs font-bold rounded flex items-center gap-1 shadow-neon-pink">
+<span class="material-symbols-outlined text-[14px]">trophy</span>
+<span>TOP 1%</span>
+</div>
+</div>
+<!-- Titles -->
+<div class="text-center space-y-1">
+<h1 class="text-3xl font-bold text-white tracking-tighter drop-shadow-[0_0_8px_rgba(242,13,128,0.6)]">
+                                facebook<span class="text-primary">/</span>react
+                            </h1>
+<div class="flex items-center justify-center gap-2 text-secondary text-sm font-medium tracking-widest uppercase opacity-80">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                                Official Repository
+                            </div>
+</div>
+</div>
+<!-- Description Box (Tech Border) -->
+<div class="relative my-4">
+<div class="tech-border border-l-2 border-primary/50 border-r-2 border-secondary/50 p-5 backdrop-blur-sm">
+<div class="absolute -top-3 left-4 bg-[#050505] px-2 text-[10px] text-primary font-bold uppercase tracking-wider border border-primary/30 rounded-sm">
+                                System.Description
+                            </div>
+<p class="text-gray-300 text-sm leading-relaxed font-light text-center">
+                                A declarative, efficient, and flexible JavaScript library for building user interfaces. React lets you compose complex UIs from small and isolated pieces of code called “components”.
+                            </p>
+<!-- Decorative elements -->
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-secondary"></div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-3 mb-2">
+<!-- Stars -->
+<div class="flex flex-col items-center justify-center p-3 rounded-lg border border-primary/30 bg-primary/5 shadow-[0_0_15px_rgba(242,13,128,0.15)] relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary mb-1 text-[24px]">star</span>
+<span class="text-white font-bold text-lg leading-tight">203k</span>
+<span class="text-[10px] text-primary/80 uppercase tracking-wider">Stars</span>
+</div>
+<!-- Forks -->
+<div class="flex flex-col items-center justify-center p-3 rounded-lg border border-secondary/30 bg-secondary/5 shadow-[0_0_15px_rgba(0,243,255,0.15)] relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-secondary mb-1 text-[24px]">account_tree</span>
+<span class="text-white font-bold text-lg leading-tight">42k</span>
+<span class="text-[10px] text-secondary/80 uppercase tracking-wider">Forks</span>
+</div>
+<!-- Language -->
+<div class="flex flex-col items-center justify-center p-3 rounded-lg border border-white/20 bg-white/5 relative overflow-hidden">
+<span class="material-symbols-outlined text-purple-400 mb-1 text-[24px]">code</span>
+<span class="text-white font-bold text-lg leading-tight">TS</span>
+<span class="text-[10px] text-gray-400 uppercase tracking-wider">Lang</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="flex justify-between items-end border-t border-white/10 pt-4 mt-2">
+<div class="flex gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse delay-75"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse delay-150"></div>
+</div>
+<div class="text-[10px] text-gray-500 font-mono flex items-center gap-1">
+                            GENERATED_VIA <span class="text-white font-bold">GITCARD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Controls Panel -->
+<div class="bg-surface-dark border-t border-white/5 p-6 rounded-t-2xl shadow-[0_-5px_20px_rgba(0,0,0,0.5)] z-40">
+<div class="max-w-md mx-auto w-full flex flex-col gap-6">
+<!-- Handle -->
+<div class="w-12 h-1 bg-white/20 rounded-full mx-auto mb-2"></div>
+<!-- Control 1: Variant Selection -->
+<div class="flex flex-col gap-3">
+<label class="text-xs text-gray-400 uppercase font-bold tracking-wider">Style Variant</label>
+<div class="flex gap-2 p-1 bg-black/40 rounded-lg">
+<button class="flex-1 py-2 text-xs font-medium text-gray-400 hover:text-white transition-colors">Minimal</button>
+<button class="flex-1 py-2 text-xs font-medium text-gray-400 hover:text-white transition-colors">Glass</button>
+<button class="flex-1 py-2 text-xs font-bold text-white bg-primary/20 border border-primary/50 rounded shadow-[0_0_10px_rgba(242,13,128,0.2)]">Cyberpunk</button>
+</div>
+</div>
+<!-- Control 2: Sliders -->
+<div class="space-y-4">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs text-gray-400 font-medium">
+<span>Neon Intensity</span>
+<span>85%</span>
+</div>
+<input class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary hover:accent-primary/80" max="100" min="0" type="range" value="85"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs text-gray-400 font-medium">
+<span>Texture Opacity</span>
+<span>30%</span>
+</div>
+<input class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-secondary hover:accent-secondary/80" max="100" min="0" type="range" value="30"/>
+</div>
+</div>
+<!-- Toggle Options -->
+<div class="flex items-center justify-between py-2">
+<span class="text-sm text-gray-300 font-medium">Show Rank Background</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/50 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</body></html>

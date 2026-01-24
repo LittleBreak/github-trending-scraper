@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Share Card Brutalism</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2f20d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#222210",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'brutal': '4px 4px 0px 0px #f2f20d',
+                        'brutal-white': '4px 4px 0px 0px #ffffff',
+                        'brutal-lg': '8px 8px 0px 0px #f2f20d',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for raw industrial feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #222210; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f2f20d; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fff; 
+        }
+        .pattern-grid {
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display overflow-x-hidden selection:bg-primary selection:text-black">
+<div class="relative flex flex-col min-h-screen w-full max-w-md mx-auto border-x-2 border-[#333]">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-dark border-b-4 border-white p-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h1 class="text-white text-xl font-bold tracking-tighter leading-none">GITHUB_CARD_GEN</h1>
+<span class="text-primary text-xs font-mono tracking-widest">// V.13 NEO-INDUSTRIAL</span>
+</div>
+<button class="material-symbols-outlined text-white hover:text-primary transition-colors">settings</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col gap-6 p-5 pb-24 pattern-grid">
+<!-- Input Section -->
+<div class="flex flex-col gap-2">
+<label class="text-primary font-bold text-sm tracking-widest uppercase">Input Source</label>
+<div class="relative group">
+<div class="absolute -inset-1 bg-primary blur opacity-20 group-hover:opacity-40 transition"></div>
+<div class="relative flex items-center bg-black border-2 border-white focus-within:border-primary shadow-brutal-white transition-all">
+<span class="material-symbols-outlined text-white pl-3">link</span>
+<input class="w-full bg-transparent border-none text-white font-mono placeholder-gray-500 focus:ring-0 py-3 px-3 uppercase tracking-tight" placeholder="user/repository..." type="text" value="pmndrs/react-three-fiber"/>
+</div>
+</div>
+</div>
+<!-- The Preview Canvas (3:4 Ratio) -->
+<div class="relative w-full aspect-[3/4] bg-black border-4 border-white shadow-brutal-lg flex flex-col p-6 justify-between overflow-hidden group">
+<!-- Card Background Elements -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rotate-45 transform translate-y-1/2 -translate-x-1/2"></div>
+<!-- Card Header: Author -->
+<div class="relative z-10 flex items-center gap-3 border-b-2 border-[#333] pb-4">
+<div class="w-12 h-12 bg-white border-2 border-primary overflow-hidden shrink-0 shadow-[2px_2px_0px_0px_#fff]" data-alt="Avatar of repository author, pixelated style">
+<img alt="Author Avatar" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG5g7N-OR-T-WgD9HQGfrmGaZuKZlJ18GmNE-YCLPXpD9NVc4B5QYdu0xsI8frUtvmAlGPiSSocoB_1NerpoVbUCkPxvot3JGd89jexj9kDkDSoBrypVeYgo8NwaX3TPcYyIC64Y6WeD6xY-SeDEKwilMkk_26QusnBsGIbFhQbgLuEikIyBXMSCVIlmc3lncCfCaLa-O6UyZKjug597ncKGZXlOdQA3HSJWZvsiCnXvFfOi5xXbAwb-j1woKSrJBdtmS4KU89Ku9W"/>
+</div>
+<div class="flex flex-col">
+<span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Maintainer</span>
+<span class="text-white font-bold text-lg leading-none tracking-tight">pmndrs</span>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-primary text-4xl">code_blocks</span>
+</div>
+</div>
+<!-- Card Body: Main Info -->
+<div class="relative z-10 flex-1 flex flex-col justify-center gap-4 py-4">
+<!-- Title with Marker Effect -->
+<div>
+<h2 class="text-6xl font-black text-white leading-[0.85] tracking-tighter uppercase break-words drop-shadow-md">
+                            react<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">three</span><br/>
+                            fiber
+                        </h2>
+</div>
+<!-- Description -->
+<div class="border-l-4 border-primary pl-4 py-1 bg-white/5 backdrop-blur-sm">
+<p class="text-gray-200 text-sm font-mono leading-tight">
+                            A React renderer for Three.js. Build your scene declaratively with re-usable, self-contained components.
+                        </p>
+</div>
+</div>
+<!-- Card Stats Grid -->
+<div class="relative z-10 grid grid-cols-2 gap-3 mb-4">
+<!-- Stat 1 -->
+<div class="border-2 border-white bg-black p-2 flex flex-col items-start shadow-[3px_3px_0px_0px_#f2f20d]">
+<span class="text-[10px] text-primary uppercase font-bold tracking-widest">Stars</span>
+<span class="text-2xl font-bold text-white">24.1k</span>
+</div>
+<!-- Stat 2 -->
+<div class="border-2 border-white bg-black p-2 flex flex-col items-start shadow-[3px_3px_0px_0px_#f2f20d]">
+<span class="text-[10px] text-primary uppercase font-bold tracking-widest">Forks</span>
+<span class="text-2xl font-bold text-white">1.2k</span>
+</div>
+<!-- Stat 3 (Full Width) -->
+<div class="col-span-2 border-2 border-primary bg-primary p-2 flex flex-row items-center justify-between shadow-[3px_3px_0px_0px_#fff]">
+<div class="flex flex-col">
+<span class="text-[10px] text-black uppercase font-black tracking-widest">Global Rank</span>
+<span class="text-xl font-black text-black leading-none">TOP #1 TRENDING</span>
+</div>
+<span class="material-symbols-outlined text-black">trending_up</span>
+</div>
+</div>
+<!-- Card Footer: Tech & QR -->
+<div class="relative z-10 flex items-end justify-between border-t-2 border-[#333] pt-4">
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-1 bg-[#333] text-white text-xs font-mono border border-gray-600">TypeScript</span>
+<span class="px-2 py-1 bg-[#333] text-white text-xs font-mono border border-gray-600">WebGL</span>
+</div>
+<!-- QR Code Placeholder -->
+<div class="w-12 h-12 bg-white p-1 border-2 border-black shrink-0" data-alt="QR code to scan repository">
+<div class="w-full h-full bg-black flex items-center justify-center">
+<div class="w-8 h-8 border-2 border-white border-dashed"></div>
+</div>
+</div>
+</div>
+<!-- Decorative corner accents -->
+<div class="absolute top-2 left-2 w-2 h-2 bg-white"></div>
+<div class="absolute top-2 right-2 w-2 h-2 bg-white"></div>
+<div class="absolute bottom-2 left-2 w-2 h-2 bg-white"></div>
+<div class="absolute bottom-2 right-2 w-2 h-2 bg-white"></div>
+</div>
+<!-- Customization Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="shrink-0 px-4 py-2 bg-primary text-black font-bold uppercase text-sm border-2 border-primary shadow-brutal-white active:translate-y-1 active:shadow-none transition-all">
+                    Variant A
+                </button>
+<button class="shrink-0 px-4 py-2 bg-transparent text-white font-bold uppercase text-sm border-2 border-white hover:bg-white hover:text-black transition-colors">
+                    Variant B
+                </button>
+<button class="shrink-0 px-4 py-2 bg-transparent text-white font-bold uppercase text-sm border-2 border-white hover:bg-white hover:text-black transition-colors">
+                    Variant C
+                </button>
+</div>
+</main>
+<!-- Sticky Bottom Action Bar -->
+<div class="sticky bottom-0 bg-background-dark border-t-2 border-[#333] p-4 z-50">
+<button class="w-full group relative h-14 bg-primary border-2 border-white shadow-[6px_6px_0px_0px_#fff] active:shadow-none active:translate-y-1 transition-all">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZjJmMjBkIiAvPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIwLjEiIC8+Cjwvc3ZnPg==')] opacity-20"></div>
+<div class="relative flex items-center justify-center gap-3 h-full">
+<span class="text-black font-black text-xl tracking-widest uppercase">Export Image</span>
+<span class="material-symbols-outlined text-black font-bold animate-pulse">download</span>
+</div>
+</button>
+<div class="text-center mt-2">
+<p class="text-[10px] text-gray-500 font-mono">OPTIMIZED FOR XIAOHONGSHU (3:4)</p>
+</div>
+</div>
+</div>
+</body></html>

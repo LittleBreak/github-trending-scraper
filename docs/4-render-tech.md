@@ -238,7 +238,6 @@ export class CardRenderer {
       .replace(/\{\{owner\}\}/g, repo.owner)
       .replace(/\{\{description\}\}/g, repo.description || 'No description')
       .replace(/\{\{language\}\}/g, repo.language || 'Unknown')
-      .replace(/\{\{languageColor\}\}/g, languageColor)
       .replace(/\{\{stars\}\}/g, repo.stars)
       .replace(/\{\{todayStars\}\}/g, repo.todayStars.replace(/[^\d,]+/g, ''));
 

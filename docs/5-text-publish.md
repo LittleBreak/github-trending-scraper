@@ -5,7 +5,7 @@
 ## 输出位置
 
 ```
-output/
+output/post.md
 ```
 
 ## 文案结构

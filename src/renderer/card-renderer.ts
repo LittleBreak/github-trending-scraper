@@ -3,32 +3,6 @@ import * as path from 'path';
 import { chromium, Browser } from 'playwright';
 import type { TrendingRepo } from '../types.js';
 
-const LANGUAGE_COLORS: Record<string, string> = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f1e05a',
-  Python: '#3572A5',
-  Rust: '#dea584',
-  Go: '#00ADD8',
-  Java: '#b07219',
-  'C++': '#f34b7d',
-  C: '#555555',
-  Ruby: '#701516',
-  Swift: '#F05138',
-  Kotlin: '#A97BFF',
-  PHP: '#4F5D95',
-  'C#': '#178600',
-  Shell: '#89e051',
-  Scala: '#c22d40',
-  Vue: '#41b883',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  default: '#8b8b8b',
-};
-
-export function getLanguageColor(language: string): string {
-  return LANGUAGE_COLORS[language] || LANGUAGE_COLORS.default;
-}
-
 export class CardRenderer {
   private browser: Browser | null = null;
   private template: string;
@@ -63,7 +37,6 @@ export class CardRenderer {
       .replace(/\{\{owner\}\}/g, this.escapeHtml(repo.owner))
       .replace(/\{\{description\}\}/g, this.escapeHtml(repo.description || 'No description'))
       .replace(/\{\{language\}\}/g, this.escapeHtml(repo.language || 'Unknown'))
-      .replace(/\{\{languageColor\}\}/g, getLanguageColor(repo.language))
       .replace(/\{\{stars\}\}/g, this.escapeHtml(repo.stars))
       .replace(/\{\{forks\}\}/g, this.escapeHtml(repo.forks))
       .replace(/\{\{firstName\}\}/g, this.escapeHtml(repo.name.charAt(0).toUpperCase()))

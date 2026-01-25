@@ -6,31 +6,31 @@
     "url": "https://github.com/anomalyco/opencode",
     "description": "The open source coding agent.",
     "language": "TypeScript",
-    "stars": "86709",
-    "forks": "7865",
+    "stars": "87013",
+    "forks": "7902",
     "todayStars": "44741 stars this month"
   },
   {
     "rank": 2,
-    "owner": "BloopAI",
-    "name": "vibe-kanban",
-    "url": "https://github.com/BloopAI/vibe-kanban",
-    "description": "Get 10X more out of Claude Code, Codex or any coding agent",
-    "language": "Rust",
-    "stars": "18866",
-    "forks": "1751",
-    "todayStars": "12116 stars this month"
-  },
-  {
-    "rank": 3,
     "owner": "obra",
     "name": "superpowers",
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "35453",
-    "forks": "2699",
+    "stars": "35651",
+    "forks": "2714",
     "todayStars": "23983 stars this month"
+  },
+  {
+    "rank": 3,
+    "owner": "BloopAI",
+    "name": "vibe-kanban",
+    "url": "https://github.com/BloopAI/vibe-kanban",
+    "description": "Get 10X more out of Claude Code, Codex or any coding agent",
+    "language": "Rust",
+    "stars": "18914",
+    "forks": "1759",
+    "todayStars": "12116 stars this month"
   },
   {
     "rank": 4,
@@ -39,8 +39,8 @@
     "url": "https://github.com/anthropics/skills",
     "description": "Public repository for Agent Skills",
     "language": "Python",
-    "stars": "52216",
-    "forks": "5056",
+    "stars": "52531",
+    "forks": "5107",
     "todayStars": "25497 stars this month"
   },
   {
@@ -50,8 +50,8 @@
     "url": "https://github.com/anthropics/claude-code",
     "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
     "language": "Shell",
-    "stars": "60373",
-    "forks": "4505",
+    "stars": "60461",
+    "forks": "4509",
     "todayStars": "12132 stars this month"
   },
   {
@@ -61,8 +61,8 @@
     "url": "https://github.com/bytedance/UI-TARS-desktop",
     "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
     "language": "TypeScript",
-    "stars": "24751",
-    "forks": "2392",
+    "stars": "24767",
+    "forks": "2393",
     "todayStars": "4706 stars this month"
   },
   {
@@ -72,8 +72,8 @@
     "url": "https://github.com/usememos/memos",
     "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
     "language": "Go",
-    "stars": "55548",
-    "forks": "3985",
+    "stars": "55583",
+    "forks": "3991",
     "todayStars": "8245 stars this month"
   },
   {
@@ -83,20 +83,20 @@
     "url": "https://github.com/shareAI-lab/learn-claude-code",
     "description": "Bash is all you need！write a claude code with only 16 line code",
     "language": "Python",
-    "stars": "15195",
-    "forks": "3416",
+    "stars": "15229",
+    "forks": "3425",
     "todayStars": "3458 stars this month"
   },
   {
     "rank": 9,
-    "owner": "ComposioHQ",
-    "name": "awesome-claude-skills",
-    "url": "https://github.com/ComposioHQ/awesome-claude-skills",
-    "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
-    "language": "Python",
-    "stars": "25396",
-    "forks": "2486",
-    "todayStars": "15999 stars this month"
+    "owner": "steveyegge",
+    "name": "beads",
+    "url": "https://github.com/steveyegge/beads",
+    "description": "Beads - A memory upgrade for your coding agent",
+    "language": "Go",
+    "stars": "12685",
+    "forks": "761",
+    "todayStars": "6359 stars this month"
   },
   {
     "rank": 10,
@@ -105,8 +105,8 @@
     "url": "https://github.com/Lissy93/web-check",
     "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
     "language": "TypeScript",
-    "stars": "30913",
-    "forks": "2427",
+    "stars": "30944",
+    "forks": "2429",
     "todayStars": "3844 stars this month"
   }
 ]

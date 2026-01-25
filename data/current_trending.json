@@ -6,9 +6,9 @@
     "url": "https://github.com/anomalyco/opencode",
     "description": "The open source coding agent.",
     "language": "TypeScript",
-    "stars": "86144",
-    "forks": "7777",
-    "todayStars": "44002 stars this month"
+    "stars": "86695",
+    "forks": "7863",
+    "todayStars": "44741 stars this month"
   },
   {
     "rank": 2,
@@ -17,9 +17,9 @@
     "url": "https://github.com/BloopAI/vibe-kanban",
     "description": "Get 10X more out of Claude Code, Codex or any coding agent",
     "language": "Rust",
-    "stars": "18756",
-    "forks": "1734",
-    "todayStars": "11969 stars this month"
+    "stars": "18863",
+    "forks": "1751",
+    "todayStars": "12116 stars this month"
   },
   {
     "rank": 3,
@@ -28,9 +28,9 @@
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "35081",
-    "forks": "2665",
-    "todayStars": "23268 stars this month"
+    "stars": "35446",
+    "forks": "2698",
+    "todayStars": "23983 stars this month"
   },
   {
     "rank": 4,
@@ -39,9 +39,9 @@
     "url": "https://github.com/anthropics/skills",
     "description": "Public repository for Agent Skills",
     "language": "Python",
-    "stars": "51698",
-    "forks": "4991",
-    "todayStars": "25136 stars this month"
+    "stars": "52200",
+    "forks": "5057",
+    "todayStars": "25497 stars this month"
   },
   {
     "rank": 5,
@@ -50,9 +50,9 @@
     "url": "https://github.com/anthropics/claude-code",
     "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
     "language": "Shell",
-    "stars": "60190",
-    "forks": "4485",
-    "todayStars": "11860 stars this month"
+    "stars": "60364",
+    "forks": "4504",
+    "todayStars": "12132 stars this month"
   },
   {
     "rank": 6,
@@ -61,9 +61,9 @@
     "url": "https://github.com/bytedance/UI-TARS-desktop",
     "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
     "language": "TypeScript",
-    "stars": "24716",
-    "forks": "2387",
-    "todayStars": "4661 stars this month"
+    "stars": "24750",
+    "forks": "2392",
+    "todayStars": "4706 stars this month"
   },
   {
     "rank": 7,
@@ -72,20 +72,20 @@
     "url": "https://github.com/usememos/memos",
     "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
     "language": "Go",
-    "stars": "55475",
-    "forks": "3982",
-    "todayStars": "8169 stars this month"
+    "stars": "55546",
+    "forks": "3985",
+    "todayStars": "8245 stars this month"
   },
   {
     "rank": 8,
     "owner": "shareAI-lab",
     "name": "learn-claude-code",
     "url": "https://github.com/shareAI-lab/learn-claude-code",
-    "description": "Bash is all you need - Learning agent by writing a tiny Claude Code.",
+    "description": "Bash is all you need！write a claude code with only 16 line code",
     "language": "Python",
-    "stars": "15146",
-    "forks": "3414",
-    "todayStars": "3376 stars this month"
+    "stars": "15195",
+    "forks": "3416",
+    "todayStars": "3458 stars this month"
   },
   {
     "rank": 9,
@@ -94,9 +94,9 @@
     "url": "https://github.com/ComposioHQ/awesome-claude-skills",
     "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
     "language": "Python",
-    "stars": "25127",
-    "forks": "2463",
-    "todayStars": "16671 stars this month"
+    "stars": "25390",
+    "forks": "2485",
+    "todayStars": "15999 stars this month"
   },
   {
     "rank": 10,
@@ -105,8 +105,8 @@
     "url": "https://github.com/Lissy93/web-check",
     "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
     "language": "TypeScript",
-    "stars": "30848",
-    "forks": "2422",
-    "todayStars": "3778 stars this month"
+    "stars": "30911",
+    "forks": "2427",
+    "todayStars": "3844 stars this month"
   }
 ]

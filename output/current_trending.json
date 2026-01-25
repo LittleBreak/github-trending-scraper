@@ -6,8 +6,8 @@
     "url": "https://github.com/anomalyco/opencode",
     "description": "The open source coding agent.",
     "language": "TypeScript",
-    "stars": "86703",
-    "forks": "7864",
+    "stars": "86709",
+    "forks": "7865",
     "todayStars": "44741 stars this month"
   },
   {
@@ -17,7 +17,7 @@
     "url": "https://github.com/BloopAI/vibe-kanban",
     "description": "Get 10X more out of Claude Code, Codex or any coding agent",
     "language": "Rust",
-    "stars": "18864",
+    "stars": "18866",
     "forks": "1751",
     "todayStars": "12116 stars this month"
   },
@@ -28,7 +28,7 @@
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "35450",
+    "stars": "35453",
     "forks": "2699",
     "todayStars": "23983 stars this month"
   },
@@ -39,8 +39,8 @@
     "url": "https://github.com/anthropics/skills",
     "description": "Public repository for Agent Skills",
     "language": "Python",
-    "stars": "52206",
-    "forks": "5057",
+    "stars": "52216",
+    "forks": "5056",
     "todayStars": "25497 stars this month"
   },
   {
@@ -50,8 +50,8 @@
     "url": "https://github.com/anthropics/claude-code",
     "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
     "language": "Shell",
-    "stars": "60368",
-    "forks": "4504",
+    "stars": "60373",
+    "forks": "4505",
     "todayStars": "12132 stars this month"
   },
   {
@@ -72,7 +72,7 @@
     "url": "https://github.com/usememos/memos",
     "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
     "language": "Go",
-    "stars": "55547",
+    "stars": "55548",
     "forks": "3985",
     "todayStars": "8245 stars this month"
   },
@@ -94,7 +94,7 @@
     "url": "https://github.com/ComposioHQ/awesome-claude-skills",
     "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
     "language": "Python",
-    "stars": "25395",
+    "stars": "25396",
     "forks": "2486",
     "todayStars": "15999 stars this month"
   },

@@ -7,6 +7,11 @@ import type { TrendingRepo } from '../src/types';
 const TEMPLATES_DIR = path.join(__dirname, '..', 'src', 'renderer', 'templates');
 const PREVIEW_OUTPUT_DIR = path.join(__dirname, '..', 'output', 'template-previews');
 
+// Read template files at module level for it.each (sorted numerically)
+const allTemplateFiles = fs.readdirSync(TEMPLATES_DIR)
+  .filter(f => f.endsWith('.html'))
+  .sort((a, b) => parseInt(a) - parseInt(b));
+
 const mockRepo: TrendingRepo = {
   rank: 1,
   owner: 'anthropics',
@@ -20,21 +25,16 @@ const mockRepo: TrendingRepo = {
 };
 
 describe('Template Preview Generator', () => {
-  const templateFiles: string[] = [];
   const renderers: Map<string, CardRenderer> = new Map();
 
   beforeAll(async () => {
-    // Get all template files
-    const files = fs.readdirSync(TEMPLATES_DIR);
-    templateFiles.push(...files.filter(f => f.endsWith('.html')));
-
     // Create output directory
     if (!fs.existsSync(PREVIEW_OUTPUT_DIR)) {
       fs.mkdirSync(PREVIEW_OUTPUT_DIR, { recursive: true });
     }
 
     // Initialize a renderer for each template
-    for (const templateFile of templateFiles) {
+    for (const templateFile of allTemplateFiles) {
       const templatePath = path.join(TEMPLATES_DIR, templateFile);
       const renderer = new CardRenderer(templatePath);
       await renderer.init();
@@ -51,30 +51,11 @@ describe('Template Preview Generator', () => {
   });
 
   it('should have templates to test', () => {
-    expect(templateFiles.length).toBeGreaterThan(0);
-    console.log(`Found ${templateFiles.length} templates to test`);
+    expect(allTemplateFiles.length).toBeGreaterThan(0);
+    console.log(`Found ${allTemplateFiles.length} templates to test`);
   });
 
-  it.each([
-    'bento-grid.html',
-    'blueprint.html',
-    'brutalism.html',
-    'circuit-board.html',
-    'claymorphism.html',
-    'cyberpunk.html',
-    'data-dash.html',
-    'default.html',
-    'glassmorphism.html',
-    'magazine.html',
-    'manga-style.html',
-    'neumorphic.html',
-    'retro-pixel.html',
-    'swiss-style.html',
-    'terminal.html',
-    'variant-1.html',
-    'variant-2.html',
-    'zen-minimalist.html',
-  ])('should render %s template', async (templateFile) => {
+  it.each(allTemplateFiles)('should render %s template', async (templateFile) => {
     const renderer = renderers.get(templateFile);
     expect(renderer).toBeDefined();
 

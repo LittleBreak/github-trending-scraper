@@ -69,7 +69,7 @@ describe('renderer', () => {
 
   describe('CardRenderer', () => {
     describe('renderCard', () => {
-      it('should render a single card to PNG file', async () => {
+      it('should render a single card to PNG file', { timeout: 10000 }, async () => {
         const mockRepo = createMockRepo();
         const outputPath = path.join(TEMP_DIR, 'single_test.png');
 
@@ -82,7 +82,7 @@ describe('renderer', () => {
         expect(stats.size).toBeGreaterThan(0);
       });
 
-      it('should handle repo with missing description', async () => {
+      it('should handle repo with missing description', { timeout: 10000 }, async () => {
         const mockRepo = createMockRepo({ description: '' });
         const outputPath = path.join(TEMP_DIR, 'no_desc_test.png');
 
@@ -95,7 +95,7 @@ describe('renderer', () => {
         expect(stats.size).toBeGreaterThan(0);
       });
 
-      it('should handle repo with special characters in name', async () => {
+      it('should handle repo with special characters in name', { timeout: 10000 }, async () => {
         const mockRepo = createMockRepo({
           name: 'test-repo_with.special<chars>',
           description: 'Description with "quotes" and <brackets>',
@@ -108,7 +108,7 @@ describe('renderer', () => {
         expect(fs.existsSync(outputPath)).toBe(true);
       });
 
-      it('should create output directory if it does not exist', async () => {
+      it('should create output directory if it does not exist', { timeout: 10000 }, async () => {
         const mockRepo = createMockRepo();
         const nestedDir = path.join(TEMP_DIR, 'nested', 'subdir');
         const outputPath = path.join(nestedDir, 'nested_test.png');

@@ -11,7 +11,7 @@ async function main() {
     console.log('Validating data...');
     const validatedRepos = validateRepos(repos);
 
-    const outputPath = path.join(process.cwd(), 'data', 'current_trending.json');
+    const outputPath = path.join(process.cwd(), 'output', 'current_trending.json');
     saveToJson(validatedRepos, outputPath);
 
     console.log(`Fetched ${validatedRepos.length} trending repos`);

@@ -1,6 +1,6 @@
 # GitHub Trending 小红书文案生成
 
-基于 [GitHub Trending](../data/current_trending.json) 数据生成小红书分享文案。
+基于 [GitHub Trending](../output/current_trending.json) 数据生成小红书分享文案。
 
 ## 输出位置
 

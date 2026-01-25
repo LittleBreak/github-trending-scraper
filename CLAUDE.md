@@ -14,7 +14,7 @@ Red Book Content Factory is an automated pipeline that scrapes GitHub Trending r
 # Run full pipeline (scrape + render)
 pnpm start
 
-# Run renderer only (uses existing data/current_trending.json)
+# Run renderer only (uses existing output/current_trending.json)
 pnpm render
 
 # Run tests
@@ -37,7 +37,7 @@ pnpm test:watch
 
 1. `fetchTrending()` → HTTP request with User-Agent → Cheerio parse
 2. `validateRepos()` → Zod schema validation
-3. `saveToJson()` → `data/current_trending.json`
+3. `saveToJson()` → `output/current_trending.json`
 4. `CardRenderer.render()` → Template substitution → Playwright screenshot
 5. Output: `output/cards/{rank}-{owner}-{name}.png`
 

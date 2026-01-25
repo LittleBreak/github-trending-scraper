@@ -206,7 +206,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/current_trending.json
+          git add output/current_trending.json
           git commit -m "Update trending data"
           git push
 

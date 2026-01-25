@@ -66,7 +66,7 @@ GitHub Trending HTML
         ↓
    Zod Validation
         ↓
-   JSON Storage (data/current_trending.json)
+   JSON Storage (output/current_trending.json)
         ↓
    Playwright Renderer
         ↓

@@ -6,8 +6,8 @@
     "url": "https://github.com/anomalyco/opencode",
     "description": "The open source coding agent.",
     "language": "TypeScript",
-    "stars": "86695",
-    "forks": "7863",
+    "stars": "86703",
+    "forks": "7864",
     "todayStars": "44741 stars this month"
   },
   {
@@ -17,7 +17,7 @@
     "url": "https://github.com/BloopAI/vibe-kanban",
     "description": "Get 10X more out of Claude Code, Codex or any coding agent",
     "language": "Rust",
-    "stars": "18863",
+    "stars": "18864",
     "forks": "1751",
     "todayStars": "12116 stars this month"
   },
@@ -28,8 +28,8 @@
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "35446",
-    "forks": "2698",
+    "stars": "35450",
+    "forks": "2699",
     "todayStars": "23983 stars this month"
   },
   {
@@ -39,7 +39,7 @@
     "url": "https://github.com/anthropics/skills",
     "description": "Public repository for Agent Skills",
     "language": "Python",
-    "stars": "52200",
+    "stars": "52206",
     "forks": "5057",
     "todayStars": "25497 stars this month"
   },
@@ -50,7 +50,7 @@
     "url": "https://github.com/anthropics/claude-code",
     "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
     "language": "Shell",
-    "stars": "60364",
+    "stars": "60368",
     "forks": "4504",
     "todayStars": "12132 stars this month"
   },
@@ -61,7 +61,7 @@
     "url": "https://github.com/bytedance/UI-TARS-desktop",
     "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
     "language": "TypeScript",
-    "stars": "24750",
+    "stars": "24751",
     "forks": "2392",
     "todayStars": "4706 stars this month"
   },
@@ -72,7 +72,7 @@
     "url": "https://github.com/usememos/memos",
     "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
     "language": "Go",
-    "stars": "55546",
+    "stars": "55547",
     "forks": "3985",
     "todayStars": "8245 stars this month"
   },
@@ -94,8 +94,8 @@
     "url": "https://github.com/ComposioHQ/awesome-claude-skills",
     "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
     "language": "Python",
-    "stars": "25390",
-    "forks": "2485",
+    "stars": "25395",
+    "forks": "2486",
     "todayStars": "15999 stars this month"
   },
   {
@@ -105,7 +105,7 @@
     "url": "https://github.com/Lissy93/web-check",
     "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
     "language": "TypeScript",
-    "stars": "30911",
+    "stars": "30913",
     "forks": "2427",
     "todayStars": "3844 stars this month"
   }

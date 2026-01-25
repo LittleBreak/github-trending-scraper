@@ -29,7 +29,7 @@ pnpm test:watch
 ### Core Modules
 
 - **src/scraper.ts** - Fetches and parses GitHub Trending HTML using Cheerio. Key function: `fetchTrending(options?)` returns validated `TrendingRepo[]`
-- **src/renderer/card-renderer.ts** - Converts repo data to PNG cards using Playwright. Manages browser lifecycle, template substitution, and screenshot generation at 1080x1440px (3:4 ratio for Xiaohongshu)
+- **src/renderer/card-renderer.ts** - Converts repo data to PNG cards using Playwright. Manages browser lifecycle, template substitution, and screenshot generation at 3:4 ratio 
 - **src/types.ts** - TypeScript interfaces + Zod schemas for runtime validation
 - **src/utils.ts** - Parsing utilities (`parseNumber` for "12.5k" → 12500) and JSON file I/O
 

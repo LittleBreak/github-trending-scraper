@@ -109,10 +109,6 @@ export interface TrendingRepo {
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { font-family: 'Noto Sans SC', sans-serif; }
-    .card {
-      width: 1080px;
-      height: 1440px; /* 3:4 比例，适合小红书 */
-    }
   </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">

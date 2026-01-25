@@ -70,7 +70,7 @@ GitHub Trending HTML
         ↓
    Playwright Renderer
         ↓
-   PNG Cards (1080x1440px, 3:4 ratio)
+   PNG Cards (3:4 ratio)
 ```
 
 ## Output

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Card - Terminal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "ide-bg": "#1e293b",
+            "ide-header": "#0f172a",
+            "syntax-keyword": "#c084fc",
+            "syntax-string": "#4ade80",
+            "syntax-func": "#60a5fa",
+            "syntax-comment": "#64748b",
+            "syntax-number": "#fbbf24",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans SC", "monospace"],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="m-0 p-0">
+  <div id="card" class="w-[1080px] h-[1440px] bg-[#101622] flex items-center justify-center font-display">
+    <!-- Abstract Background Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-2xl h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <!-- Terminal Card -->
+    <div class="relative w-[920px] h-[1200px] bg-ide-bg rounded-2xl shadow-2xl flex flex-col overflow-hidden ring-1 ring-white/10">
+      <!-- Window Title Bar -->
+      <div class="h-16 bg-ide-header border-b border-white/5 flex items-center px-6 justify-between shrink-0">
+        <div class="flex gap-3">
+          <div class="w-4 h-4 rounded-full bg-[#FF5F56]"></div>
+          <div class="w-4 h-4 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-4 h-4 rounded-full bg-[#27C93F]"></div>
+        </div>
+        <div class="text-gray-500 text-lg font-medium tracking-wide flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl">terminal</span>
+          bash — 80x24
+        </div>
+        <div class="w-16"></div>
+      </div>
+
+      <!-- Editor Area -->
+      <div class="flex-1 p-8 overflow-hidden relative flex flex-col font-mono text-xl leading-10">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 pointer-events-none opacity-5 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+
+        <!-- Code Lines -->
+        <div class="relative z-10 flex flex-col gap-2 h-full text-white">
+          <!-- Line 1 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">1</span>
+            <div>
+              <span class="text-syntax-string font-bold">➜</span>
+              <span class="text-syntax-func font-bold ml-2">~</span>
+              <span class="text-white ml-2">git remote show origin</span>
+            </div>
+          </div>
+          <!-- Line 2 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">2</span>
+            <div class="text-gray-500">Fetch URL: https://github.com/{{owner}}/{{name}}</div>
+          </div>
+          <!-- Line 3 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">3</span>
+            <div> </div>
+          </div>
+          <!-- Line 4 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">4</span>
+            <div>
+              <span class="text-syntax-keyword">export const</span>
+              <span class="text-syntax-number ml-2">REPO</span>
+              <span class="text-white ml-1">=</span>
+              <span class="text-syntax-string ml-1">"{{name}}"</span><span class="text-white">;</span>
+            </div>
+          </div>
+          <!-- Line 5 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">5</span>
+            <div class="text-syntax-comment italic">// {{description}}</div>
+          </div>
+          <!-- Line 6 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">6</span>
+            <div> </div>
+          </div>
+          <!-- Line 7 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">7</span>
+            <div>
+              <span class="text-syntax-keyword">const</span>
+              <span class="text-syntax-func ml-2">stats</span>
+              <span class="text-white ml-1">= {</span>
+            </div>
+          </div>
+          <!-- Line 8-11 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">8</span>
+            <div class="pl-8">
+              <span class="text-syntax-func">"stars"</span>:
+              <span class="text-syntax-number ml-1">{{stars}}</span>,
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">9</span>
+            <div class="pl-8">
+              <span class="text-syntax-func">"forks"</span>:
+              <span class="text-syntax-number ml-1">{{forks}}</span>,
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">10</span>
+            <div class="pl-8">
+              <span class="text-syntax-func">"lang"</span>:
+              <span class="text-syntax-string ml-1">"{{language}}"</span>,
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">11</span>
+            <div class="pl-8">
+              <span class="text-syntax-func">"today"</span>:
+              <span class="text-syntax-string ml-1">"{{todayStars}}"</span>
+            </div>
+          </div>
+          <!-- Line 12 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">12</span>
+            <div class="text-white">};</div>
+          </div>
+          <!-- Line 13 -->
+          <div class="flex items-start">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">13</span>
+            <div> </div>
+          </div>
+          <!-- Line 14 -->
+          <div class="flex items-start mt-auto">
+            <span class="text-gray-600 select-none mr-6 w-8 text-right">14</span>
+            <div>
+              <span class="text-syntax-keyword">return</span>
+              <span class="text-white ml-1">process.</span><span class="text-syntax-func">exit</span><span class="text-white">(</span><span class="text-syntax-number">0</span><span class="text-white">);</span>
+              <span class="inline-block w-4 h-8 bg-primary ml-2 align-text-bottom animate-pulse"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="bg-primary/10 h-12 flex items-center px-6 justify-between border-t border-white/5 text-sm uppercase tracking-wider text-primary font-bold">
+        <div class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
+          Running
+        </div>
+        <div>UTF-8</div>
+        <div>{{language}}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

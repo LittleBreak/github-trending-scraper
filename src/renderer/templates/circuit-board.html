@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Card - Circuit Board</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#25aff4",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans SC", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .shadow-glow {
+      box-shadow: 0 0 15px rgba(37, 175, 244, 0.5);
+    }
+    .shadow-glow-sm {
+      box-shadow: 0 0 8px rgba(37, 175, 244, 0.4);
+    }
+    .text-glow {
+      text-shadow: 0 0 10px rgba(37, 175, 244, 0.6);
+    }
+  </style>
+</head>
+<body class="m-0 p-0">
+  <div id="card" class="w-[1080px] h-[1440px] bg-[#0b1021] overflow-hidden font-display text-white relative">
+    <!-- Background Grid -->
+    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#25aff4 1px, transparent 1px); background-size: 20px 20px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0b1021]/50 via-transparent to-[#0b1021] pointer-events-none"></div>
+
+    <!-- Circuit Traces -->
+    <div class="absolute top-16 left-0 w-24 h-1 bg-primary/40"></div>
+    <div class="absolute top-16 left-24 w-1 h-24 bg-primary/40"></div>
+    <div class="absolute top-40 left-24 w-16 h-1 bg-primary/40"></div>
+    <div class="absolute top-[156px] left-[156px] w-4 h-4 rounded-full bg-primary shadow-glow-sm"></div>
+
+    <div class="absolute top-24 right-0 w-32 h-1 bg-primary/40"></div>
+    <div class="absolute top-24 right-32 w-1 h-16 bg-primary/40"></div>
+    <div class="absolute top-[156px] right-[140px] w-4 h-4 rounded-full bg-primary shadow-glow-sm"></div>
+
+    <div class="absolute bottom-64 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-64 bg-primary/20"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col h-full p-12">
+      <!-- Header Label -->
+      <div class="flex justify-between items-center mb-16">
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary text-2xl">memory</span>
+          <span class="text-sm font-bold tracking-[0.2em] text-primary/80 uppercase">GitCard v1.5</span>
+        </div>
+        <div class="px-4 py-1 rounded border border-primary/30 bg-primary/10">
+          <span class="text-sm font-mono text-primary">{{language}}</span>
+        </div>
+      </div>
+
+      <!-- Central Processor Unit (CPU) -->
+      <div class="flex-1 flex flex-col items-center justify-center relative">
+        <!-- Glowing Connecting Lines -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-2 border-dashed border-primary/10 rounded-full"></div>
+
+        <!-- The Core Box -->
+        <div class="relative bg-[#0f1823] border-2 border-primary/60 p-12 w-full max-w-3xl rounded-2xl shadow-glow backdrop-blur-sm flex flex-col items-center gap-8 z-20">
+          <!-- Tech Corners -->
+          <div class="absolute -top-px -left-px w-6 h-6 border-t-4 border-l-4 border-primary"></div>
+          <div class="absolute -top-px -right-px w-6 h-6 border-t-4 border-r-4 border-primary"></div>
+          <div class="absolute -bottom-px -left-px w-6 h-6 border-b-4 border-l-4 border-primary"></div>
+          <div class="absolute -bottom-px -right-px w-6 h-6 border-b-4 border-r-4 border-primary"></div>
+
+          <!-- Rank Badge -->
+          <div class="relative">
+            <div class="absolute inset-0 rounded-full bg-primary blur-lg opacity-40"></div>
+            <div class="w-32 h-32 rounded-full border-4 border-primary relative z-10 bg-black flex items-center justify-center">
+              <span class="text-5xl font-bold text-primary text-glow">{{rank}}</span>
+            </div>
+          </div>
+
+          <!-- Text Info -->
+          <div class="text-center">
+            <h1 class="text-5xl font-bold text-white tracking-tight text-glow">{{name}}</h1>
+            <p class="text-primary/80 text-xl font-medium tracking-wide mt-2">{{owner}}</p>
+          </div>
+
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-2"></div>
+
+          <p class="text-lg text-center text-gray-400 leading-relaxed max-w-2xl">
+            {{description}}
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats Array (Bottom) -->
+      <div class="mt-auto pt-16">
+        <div class="flex gap-6 justify-between">
+          <div class="flex-1 bg-[#131f2b] border-2 border-primary/30 p-6 rounded relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-primary/50"></div>
+            <div class="flex flex-col items-center gap-2 z-10 relative">
+              <span class="material-symbols-outlined text-primary text-3xl">star</span>
+              <span class="text-3xl font-bold text-white">{{stars}}</span>
+              <span class="text-sm uppercase tracking-widest text-gray-500">Stars</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-[#131f2b] border-2 border-primary/30 p-6 rounded relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-primary/50"></div>
+            <div class="flex flex-col items-center gap-2 z-10 relative">
+              <span class="material-symbols-outlined text-primary text-3xl">fork_right</span>
+              <span class="text-3xl font-bold text-white">{{forks}}</span>
+              <span class="text-sm uppercase tracking-widest text-gray-500">Forks</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-[#131f2b] border-2 border-primary/30 p-6 rounded relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-primary/50"></div>
+            <div class="flex flex-col items-center gap-2 z-10 relative">
+              <span class="material-symbols-outlined text-primary text-3xl">trending_up</span>
+              <span class="text-3xl font-bold text-white">{{todayStars}}</span>
+              <span class="text-sm uppercase tracking-widest text-gray-500">Today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Watermark -->
+      <div class="mt-8 flex justify-between items-end opacity-50">
+        <div class="h-2 w-32 bg-gradient-to-r from-primary to-transparent"></div>
+        <p class="text-sm font-mono text-primary uppercase">Generated by CircuitBoard</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Card - Magazine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#d41132",
+          },
+          fontFamily: {
+            "display": ["Newsreader", "Noto Sans SC", "serif"],
+            "sans": ["Noto Sans SC", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .barcode-stripes {
+      background: repeating-linear-gradient(
+        90deg,
+        #fff 0px, #fff 2px,
+        transparent 2px, transparent 4px,
+        #fff 4px, #fff 5px,
+        transparent 5px, transparent 7px,
+        #fff 7px, #fff 10px,
+        transparent 10px, transparent 12px
+      );
+    }
+  </style>
+</head>
+<body class="m-0 p-0">
+  <div id="card" class="w-[1080px] h-[1440px] shadow-2xl overflow-hidden bg-[#1a0b0d] font-display relative">
+    <!-- Background Image Layer -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-black/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#221013]/40 via-transparent to-[#221013]/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+    </div>
+
+    <!-- Content Layer -->
+    <div class="relative z-10 h-full flex flex-col justify-between p-12">
+      <!-- Magazine Top Header -->
+      <div class="flex flex-col items-center border-b border-white/20 pb-8">
+        <div class="flex items-center justify-between w-full mb-2">
+          <span class="text-sm font-sans font-bold tracking-[0.3em] text-white/70 uppercase">Open Source Monthly</span>
+          <span class="text-sm font-sans font-bold tracking-[0.3em] text-primary uppercase">Issue #{{rank}}</span>
+        </div>
+        <!-- Masthead Title -->
+        <h1 class="text-8xl font-black italic tracking-tighter text-white drop-shadow-lg text-center leading-[0.85] mt-4">
+          GITHUB
+        </h1>
+      </div>
+
+      <!-- Central Focus -->
+      <div class="flex flex-col flex-grow justify-center py-8">
+        <!-- Issue Number Badge -->
+        <div class="self-start bg-primary text-white px-6 py-2 text-lg font-bold font-sans tracking-widest uppercase mb-8 shadow-lg transform -rotate-2">
+          Rank #{{rank}}
+        </div>
+
+        <!-- Repo Name -->
+        <h2 class="text-9xl font-display font-light text-white leading-[0.9] tracking-tight mb-4">
+          {{name}}<span class="text-primary">.</span>
+        </h2>
+
+        <!-- Sub-headline -->
+        <p class="text-3xl text-gray-300 font-display italic leading-snug max-w-[85%] border-l-4 border-primary pl-8 my-8">
+          "{{description}}"
+        </p>
+
+        <!-- Owner Byline -->
+        <div class="flex items-center gap-4 mt-4">
+          <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+          <p class="text-xl font-sans text-gray-400 uppercase tracking-widest">Curated by {{owner}}</p>
+        </div>
+      </div>
+
+      <!-- Footer Stats -->
+      <div class="grid grid-cols-2 gap-x-12 gap-y-12 items-end pb-4">
+        <!-- Stat 1 -->
+        <div>
+          <div class="h-1 w-16 bg-primary mb-4"></div>
+          <h3 class="text-5xl font-bold text-white leading-none">{{stars}}</h3>
+          <p class="text-sm uppercase tracking-[0.2em] font-sans text-gray-400 mt-2">Stargazers</p>
+        </div>
+        <!-- Stat 2 -->
+        <div>
+          <div class="h-1 w-16 bg-primary mb-4"></div>
+          <h3 class="text-5xl font-bold text-white leading-none">{{forks}}</h3>
+          <p class="text-sm uppercase tracking-[0.2em] font-sans text-gray-400 mt-2">Forks</p>
+        </div>
+        <!-- Stat 3 (Language) -->
+        <div class="col-span-2 flex items-center justify-between border-t border-white/10 pt-8 mt-4">
+          <div>
+            <p class="text-sm uppercase tracking-[0.2em] font-sans text-primary mb-2">Language</p>
+            <div class="flex items-center gap-4">
+              <span class="w-5 h-5 rounded-full" style="background-color: {{languageColor}}"></span>
+              <p class="text-4xl font-display italic text-white">{{language}}</p>
+            </div>
+          </div>
+          <!-- Decorative Barcode -->
+          <div class="flex flex-col items-end opacity-80">
+            <div class="w-48 h-16 barcode-stripes mix-blend-screen"></div>
+            <span class="text-sm font-sans text-white tracking-[0.3em] mt-2">{{todayStars}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

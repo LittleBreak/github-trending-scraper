@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Card - Bento Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#137fec",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans SC", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="m-0 p-0">
+  <div id="card" class="w-[1080px] h-[1440px] rounded-3xl overflow-hidden flex flex-col p-8 gap-6 font-display relative">
+    <!-- Card Internal Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1e293b] via-[#0f172a] to-[#020617] z-0"></div>
+    <!-- Decorative Internal Glows -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary/30 rounded-full blur-[80px] z-0"></div>
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
+
+    <!-- Bento Grid Content -->
+    <div class="relative z-10 flex flex-col h-full gap-6">
+      <!-- 1. Header Tile (Repo Info) -->
+      <div class="flex-shrink-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex items-center gap-8">
+        <div class="relative shrink-0">
+          <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center">
+            <span class="text-white text-4xl font-bold">{{rank}}</span>
+          </div>
+        </div>
+        <div class="flex flex-col min-w-0">
+          <h1 class="text-white text-4xl font-bold truncate">{{owner}} / {{name}}</h1>
+          <div class="flex items-center gap-4 mt-2">
+            <span class="px-4 py-1 rounded-full bg-primary/20 text-primary text-lg font-medium border border-primary/20">Public</span>
+            <span class="text-slate-400 text-lg">Trending #{{rank}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Description Tile -->
+      <div class="flex-shrink-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-10 flex flex-col justify-center min-h-[200px]">
+        <p class="text-slate-200 text-2xl leading-relaxed font-normal">
+          {{description}}
+        </p>
+      </div>
+
+      <!-- 3. Metrics Grid (2x2) -->
+      <div class="flex-1 grid grid-cols-2 gap-6 min-h-0">
+        <!-- Stars -->
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <span class="text-slate-400 text-xl font-medium">Total Stars</span>
+            <div class="p-3 rounded-xl bg-yellow-500/10 text-yellow-500">
+              <span class="material-symbols-outlined text-4xl">star</span>
+            </div>
+          </div>
+          <p class="text-white text-5xl font-bold">{{stars}}</p>
+        </div>
+        <!-- Forks -->
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <span class="text-slate-400 text-xl font-medium">Forks</span>
+            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+              <span class="material-symbols-outlined text-4xl">call_split</span>
+            </div>
+          </div>
+          <p class="text-white text-5xl font-bold">{{forks}}</p>
+        </div>
+        <!-- Language -->
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <span class="text-slate-400 text-xl font-medium">Language</span>
+            <div class="p-3 rounded-xl bg-blue-500/10 text-blue-400">
+              <span class="material-symbols-outlined text-4xl">code_blocks</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-6 h-6 rounded-full shadow-[0_0_8px_rgba(96,165,250,0.6)]" style="background-color: {{languageColor}}"></span>
+            <p class="text-white text-4xl font-bold truncate">{{language}}</p>
+          </div>
+        </div>
+        <!-- Trending -->
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/20 blur-xl rounded-full"></div>
+          <div class="flex justify-between items-start relative z-10">
+            <span class="text-slate-400 text-xl font-medium">Today</span>
+            <div class="p-3 rounded-xl bg-green-500/10 text-green-400">
+              <span class="material-symbols-outlined text-4xl">trending_up</span>
+            </div>
+          </div>
+          <div class="relative z-10">
+            <p class="text-white text-5xl font-bold">{{todayStars}}</p>
+            <p class="text-primary text-lg font-bold mt-1">Top Trending</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer branding -->
+      <div class="flex items-center justify-center pt-2 pb-2 opacity-40">
+        <span class="text-lg text-white tracking-widest uppercase font-semibold">Generated by GitShare</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

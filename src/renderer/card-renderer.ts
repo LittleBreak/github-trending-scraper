@@ -35,7 +35,7 @@ export class CardRenderer {
   private templatePath: string;
 
   constructor(templatePath?: string) {
-    this.templatePath = templatePath || path.join(__dirname, 'templates', 'card-2.html');
+    this.templatePath = templatePath || path.join(__dirname, 'templates', 'default.html');
     this.template = fs.readFileSync(this.templatePath, 'utf-8');
   }
 

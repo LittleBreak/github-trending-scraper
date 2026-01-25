@@ -4,6 +4,7 @@ import { saveToJson } from './utils';
 import { renderCards } from './renderer/index.js';
 
 async function main() {
+  const startTime = Date.now();
   try {
     console.log('Fetching GitHub Trending repositories...');
     const repos = await fetchTrending({ limit: 10, since: 'monthly' });
@@ -21,6 +22,9 @@ async function main() {
     const cardPaths = await renderCards(validatedRepos);
     console.log(`Generated ${cardPaths.length} cards`);
     cardPaths.forEach((cardPath) => console.log(`  - ${cardPath}`));
+
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+    console.log(`Total execution time: ${elapsed}s`);
   } catch (error) {
     console.error('Failed to fetch trending repos:', error);
     process.exit(1);

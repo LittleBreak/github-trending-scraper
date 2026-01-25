@@ -70,16 +70,14 @@ export class CardRenderer {
   }
 
   async renderAll(repos: TrendingRepo[], outputDir: string): Promise<string[]> {
-    const outputPaths: string[] = [];
-
-    for (const repo of repos) {
+    const renderPromises = repos.map(async (repo) => {
       const filename = `top${repo.rank}.png`;
       const outputPath = path.join(outputDir, filename);
       await this.renderCard(repo, outputPath);
-      outputPaths.push(outputPath);
-    }
+      return outputPath;
+    });
 
-    return outputPaths;
+    return Promise.all(renderPromises);
   }
 
   private escapeHtml(text: string): string {

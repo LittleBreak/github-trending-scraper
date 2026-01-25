@@ -1,1 +1,1 @@
-export { CardRenderer, renderCards, getLanguageColor } from './card-renderer.js';
+export { CardRenderer, renderCards } from './card-renderer.js';

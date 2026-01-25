@@ -7,6 +7,8 @@ export class CardRenderer {
   private browser: Browser | null = null;
   private template: string;
   private templatePath: string;
+  private page: import('playwright').Page | null = null;
+  private context: import('playwright').BrowserContext | null = null;
 
   constructor(templatePath?: string) {
     this.templatePath = templatePath || path.join(__dirname, 'templates', '9.html');
@@ -17,9 +19,22 @@ export class CardRenderer {
     this.browser = await chromium.launch({
       headless: true,
     });
+    // 预创建 context 和 page，复用于所有渲染
+    this.context = await this.browser.newContext({
+      deviceScaleFactor: 2,
+    });
+    this.page = await this.context.newPage();
   }
 
   async close(): Promise<void> {
+    if (this.page) {
+      await this.page.close();
+      this.page = null;
+    }
+    if (this.context) {
+      await this.context.close();
+      this.context = null;
+    }
     if (this.browser) {
       await this.browser.close();
       this.browser = null;
@@ -27,7 +42,7 @@ export class CardRenderer {
   }
 
   async renderCard(repo: TrendingRepo, outputPath: string): Promise<string> {
-    if (!this.browser) {
+    if (!this.browser || !this.page) {
       throw new Error('Browser not initialized. Call init() first.');
     }
 
@@ -42,36 +57,31 @@ export class CardRenderer {
       .replace(/\{\{firstName\}\}/g, this.escapeHtml(repo.name.charAt(0).toUpperCase()))
       .replace(/\{\{todayStars\}\}/g, this.escapeHtml(repo.todayStars));
 
-    const context = await this.browser.newContext({
-      deviceScaleFactor: 2,
-    });
-    const page = await context.newPage();
+    // 使用 domcontentloaded 替代 networkidle，对于本地模板更快
+    await this.page.setContent(html, { waitUntil: 'domcontentloaded' });
 
-    try {
-      await page.setContent(html, { waitUntil: 'networkidle' });
-
-      const card = await page.$('#card');
-      if (!card) {
-        throw new Error('Card element not found in template');
-      }
-
-      const outputDir = path.dirname(outputPath);
-      if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
-      }
-
-      await card.screenshot({ path: outputPath, type: 'png' });
-
-      return outputPath;
-    } finally {
-      await page.close();
-      await context.close();
+    const card = await this.page.$('#card');
+    if (!card) {
+      throw new Error('Card element not found in template');
     }
+
+    const outputDir = path.dirname(outputPath);
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    await card.screenshot({ path: outputPath, type: 'png' });
+
+    return outputPath;
   }
 
   async renderAll(repos: TrendingRepo[], outputDir: string): Promise<string[]> {
-    const outputPaths: string[] = [];
+    // 确保输出目录存在（只检查一次）
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
 
+    const outputPaths: string[] = [];
     for (const repo of repos) {
       const filename = `top${repo.rank}.png`;
       const outputPath = path.join(outputDir, filename);

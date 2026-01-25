@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GitHub Share Card Glassmorphism</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7f13ec",
+            "background-dark": "#191022",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .glass-panel {
+      background: rgba(25, 16, 34, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+    .glass-pill {
+      background: rgba(25, 16, 34, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .mesh-gradient-bg {
+      background-color: #191022;
+      background-image:
+        radial-gradient(at 0% 0%, hsla(276,68%,28%,1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(273,65%,48%,0.6) 0, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(262,72%,33%,1) 0, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-background-dark text-white font-display m-0 p-0">
+  <div id="card" class="mesh-gradient-bg glass-panel w-[380px] aspect-[3/4] rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+    <!-- Decorative Top Blob -->
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 blur-2xl rounded-full pointer-events-none"></div>
+
+    <!-- Card Header -->
+    <div class="flex flex-col gap-4 relative z-10">
+      <div class="flex items-center gap-3">
+        <div class="size-12 rounded-full bg-white/10 overflow-hidden border-2 border-white/20 flex items-center justify-center">
+          <span class="text-white text-xl font-bold">{{firstName}}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs font-semibold uppercase tracking-wider text-[#d8b4fe] opacity-80">Repository</span>
+          <h3 class="text-2xl font-extrabold text-white leading-tight">{{owner}} / {{name}}</h3>
+        </div>
+      </div>
+      <!-- Rank Badge -->
+      <div class="absolute top-0 right-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full px-3 py-1 flex items-center gap-1 shadow-lg">
+        <span class="text-white text-sm font-bold">#{{rank}}</span>
+      </div>
+    </div>
+
+    <!-- Description Block -->
+    <div class="flex-1 flex flex-col justify-center py-4 relative z-10">
+      <div class="glass-pill p-4 rounded-xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-3 h-3 rounded-full" style="background-color: {{languageColor}};"></span>
+          <span class="text-xs font-bold text-[#d8b4fe]">{{language}}</span>
+        </div>
+        <p class="text-white/90 text-lg font-medium leading-relaxed line-clamp-3">
+          {{description}}
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 gap-3 relative z-10">
+      <div class="glass-pill p-3 rounded-xl flex flex-col items-start gap-1">
+        <div class="flex items-center gap-1 text-[#d8b4fe]">
+          <span class="material-symbols-outlined text-sm">star</span>
+          <span class="text-xs font-bold uppercase tracking-wider">Stars</span>
+        </div>
+        <p class="text-2xl font-extrabold text-white">{{stars}}</p>
+      </div>
+      <div class="glass-pill p-3 rounded-xl flex flex-col items-start gap-1">
+        <div class="flex items-center gap-1 text-[#d8b4fe]">
+          <span class="material-symbols-outlined text-sm">fork_right</span>
+          <span class="text-xs font-bold uppercase tracking-wider">Forks</span>
+        </div>
+        <p class="text-2xl font-extrabold text-white">{{forks}}</p>
+      </div>
+      <div class="col-span-2 glass-pill p-3 rounded-xl flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="p-1.5 rounded-full bg-green-400/20 text-green-300">
+            <span class="material-symbols-outlined text-sm block">trending_up</span>
+          </div>
+          <span class="text-sm font-medium text-white">Today's Activity</span>
+        </div>
+        <p class="text-xl font-extrabold text-white">{{todayStars}}</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

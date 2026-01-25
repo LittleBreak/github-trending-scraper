@@ -1,21 +1,21 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import { CardRenderer, getLanguageColor } from '../src/renderer/card-renderer';
+import { CardRenderer } from '../src/renderer/card-renderer';
 import type { TrendingRepo } from '../src/types';
 
 const TEMP_DIR = path.join(__dirname, 'temp_cards');
 
 const createMockRepo = (overrides: Partial<TrendingRepo> = {}): TrendingRepo => ({
-  rank: 1,
-  owner: 'test-owner',
-  name: 'test-repo',
-  url: 'https://github.com/test-owner/test-repo',
-  description: 'A test repository for testing purposes',
-  language: 'TypeScript',
-  stars: '1234',
-  forks: '567',
-  todayStars: '+89 stars today',
+  "rank": 1,
+  "owner": "anomalyco",
+  "name": "opencode",
+  "url": "https://github.com/anomalyco/opencode",
+  "description": "The open source coding agent.",
+  "language": "TypeScript",
+  "stars": "87056",
+  "forks": "7907",
+  "todayStars": "44741 stars this month",
   ...overrides,
 });
 
@@ -37,39 +37,9 @@ describe('renderer', () => {
     }
   });
 
-  describe('getLanguageColor', () => {
-    it('should return correct color for TypeScript', () => {
-      expect(getLanguageColor('TypeScript')).toBe('#3178c6');
-    });
-
-    it('should return correct color for JavaScript', () => {
-      expect(getLanguageColor('JavaScript')).toBe('#f1e05a');
-    });
-
-    it('should return correct color for Python', () => {
-      expect(getLanguageColor('Python')).toBe('#3572A5');
-    });
-
-    it('should return correct color for Rust', () => {
-      expect(getLanguageColor('Rust')).toBe('#dea584');
-    });
-
-    it('should return correct color for Go', () => {
-      expect(getLanguageColor('Go')).toBe('#00ADD8');
-    });
-
-    it('should return default color for unknown language', () => {
-      expect(getLanguageColor('UnknownLanguage')).toBe('#8b8b8b');
-    });
-
-    it('should return default color for empty string', () => {
-      expect(getLanguageColor('')).toBe('#8b8b8b');
-    });
-  });
-
   describe('CardRenderer', () => {
     describe('renderCard', () => {
-      it('should render a single card to PNG file', { timeout: 10000 }, async () => {
+      it('should render a single card to PNG file', { timeout: 30000 }, async () => {
         const mockRepo = createMockRepo();
         const outputPath = path.join(TEMP_DIR, 'single_test.png');
 

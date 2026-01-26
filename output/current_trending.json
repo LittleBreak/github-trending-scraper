@@ -6,8 +6,8 @@
     "url": "https://github.com/anomalyco/opencode",
     "description": "The open source coding agent.",
     "language": "TypeScript",
-    "stars": "88507",
-    "forks": "8075",
+    "stars": "88532",
+    "forks": "8076",
     "todayStars": "45294 stars this month"
   },
   {
@@ -17,8 +17,8 @@
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "36697",
-    "forks": "2796",
+    "stars": "36707",
+    "forks": "2797",
     "todayStars": "24448 stars this month"
   },
   {
@@ -28,7 +28,7 @@
     "url": "https://github.com/BloopAI/vibe-kanban",
     "description": "Get 10X more out of Claude Code, Codex or any coding agent",
     "language": "Rust",
-    "stars": "19156",
+    "stars": "19159",
     "forks": "1782",
     "todayStars": "12275 stars this month"
   },
@@ -39,7 +39,7 @@
     "url": "https://github.com/anthropics/skills",
     "description": "Public repository for Agent Skills",
     "language": "Python",
-    "stars": "53960",
+    "stars": "53974",
     "forks": "5261",
     "todayStars": "25723 stars this month"
   },
@@ -50,7 +50,7 @@
     "url": "https://github.com/anthropics/claude-code",
     "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
     "language": "Shell",
-    "stars": "60873",
+    "stars": "60877",
     "forks": "4546",
     "todayStars": "12252 stars this month"
   },
@@ -61,7 +61,7 @@
     "url": "https://github.com/shareAI-lab/learn-claude-code",
     "description": "Bash is all you need！write a claude code with only 16 line code",
     "language": "Python",
-    "stars": "15354",
+    "stars": "15355",
     "forks": "3430",
     "todayStars": "3552 stars this month"
   },
@@ -72,7 +72,7 @@
     "url": "https://github.com/bytedance/UI-TARS-desktop",
     "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
     "language": "TypeScript",
-    "stars": "24839",
+    "stars": "24840",
     "forks": "2397",
     "todayStars": "4747 stars this month"
   },
@@ -83,7 +83,7 @@
     "url": "https://github.com/usememos/memos",
     "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
     "language": "Go",
-    "stars": "55755",
+    "stars": "55758",
     "forks": "4003",
     "todayStars": "8344 stars this month"
   },
@@ -94,7 +94,7 @@
     "url": "https://github.com/steveyegge/beads",
     "description": "Beads - A memory upgrade for your coding agent",
     "language": "Go",
-    "stars": "12880",
+    "stars": "12883",
     "forks": "778",
     "todayStars": "6490 stars this month"
   },
@@ -105,7 +105,7 @@
     "url": "https://github.com/Lissy93/web-check",
     "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
     "language": "TypeScript",
-    "stars": "31076",
+    "stars": "31079",
     "forks": "2436",
     "todayStars": "3947 stars this month"
   }

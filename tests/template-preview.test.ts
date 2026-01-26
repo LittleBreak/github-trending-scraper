@@ -5,7 +5,7 @@ import { CardRenderer } from '../src/renderer/card-renderer';
 import type { TrendingRepo } from '../src/types';
 
 const TEMPLATES_DIR = path.join(__dirname, '..', 'src', 'renderer', 'templates');
-const PREVIEW_OUTPUT_DIR = path.join(__dirname, '..', 'output', 'template-previews');
+const PREVIEW_OUTPUT_DIR = path.join(__dirname, '..', 'template-previews');
 
 // Read template files at module level for it.each (sorted numerically)
 const allTemplateFiles = fs.readdirSync(TEMPLATES_DIR)

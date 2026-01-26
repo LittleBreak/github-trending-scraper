@@ -22,11 +22,3 @@ export function loadFromJson(filePath: string): TrendingRepo[] {
   const content = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(content) as TrendingRepo[];
 }
-
-export function saveToMarkdown(content: string, filePath: string): void {
-  const dir = path.dirname(filePath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(filePath, content, 'utf-8');
-}

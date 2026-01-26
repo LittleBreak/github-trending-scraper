@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { ProxyAgent, setGlobalDispatcher } from 'undici';
+import * as fs from 'fs';
 import * as path from 'path';
-import { loadFromJson, saveToMarkdown } from './utils';
+import { loadFromJson } from './utils';
 import { generateXiaohongshuPost } from './llm';
 
 // Setup proxy for fetch if available
@@ -11,7 +12,7 @@ if (proxyUrl) {
 }
 
 const INPUT_FILE = path.join(process.cwd(), 'output', 'current_trending.json');
-const OUTPUT_FILE = path.join(process.cwd(), 'output', 'post.md');
+const OUTPUT_FILE = path.join(process.cwd(), 'output', 'post.txt');
 
 async function main() {
   console.log('Loading trending data...');
@@ -19,30 +20,13 @@ async function main() {
   console.log(`Loaded ${repos.length} repositories`);
 
   console.log('Generating Xiaohongshu post...');
-  const post = await generateXiaohongshuPost(repos, { maxRepos: 10 });
+  const content = await generateXiaohongshuPost(repos, { maxRepos: 10 });
 
-  const markdown = formatPostAsMarkdown(post);
-  saveToMarkdown(markdown, OUTPUT_FILE);
+  fs.writeFileSync(OUTPUT_FILE, content, 'utf-8');
   console.log(`Post saved to ${OUTPUT_FILE}`);
 
   console.log('\n--- Generated Post ---');
-  console.log(`Title: ${post.title}`);
-  console.log(`Tags: ${post.tags.join(', ')}`);
-  console.log('\nContent preview:');
-  console.log(post.content.slice(0, 500) + '...');
-}
-
-function formatPostAsMarkdown(post: { title: string; content: string; tags: string[] }): string {
-  const lines = [
-    `# ${post.title}`,
-    '',
-    post.content,
-    '',
-    '---',
-    '',
-    `**Tags:** ${post.tags.join(' ')}`,
-  ];
-  return lines.join('\n');
+  console.log(content.slice(0, 500) + '...');
 }
 
 main().catch((error) => {

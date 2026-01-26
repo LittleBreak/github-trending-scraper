@@ -1,7 +1,6 @@
 import { GoogleGenAI } from '@google/genai';
 import type { TrendingRepo } from '../types';
-import type { GeminiGeneratorConfig, GeneratedPost, GeneratePostOptions } from './types';
-import { GeneratedPostSchema } from './types';
+import type { GeminiGeneratorConfig, GeneratePostOptions } from './types';
 import { buildSystemPrompt, buildUserPrompt } from './prompts';
 
 const DEFAULT_MODEL = 'gemini-3-flash-preview';
@@ -22,7 +21,7 @@ export class GeminiGenerator {
   async generatePost(
     repos: TrendingRepo[],
     options: GeneratePostOptions = {}
-  ): Promise<GeneratedPost> {
+  ): Promise<string> {
     const maxRepos = options.maxRepos ?? 10;
     const selectedRepos = repos.slice(0, maxRepos);
 
@@ -47,27 +46,14 @@ export class GeminiGenerator {
       },
     });
 
-    const text = response.text || '';
-    const post = this.parseResponse(text);
-    return post;
-  }
-
-  private parseResponse(text: string): GeneratedPost {
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      throw new Error('Failed to extract JSON from response');
-    }
-
-    const parsed = JSON.parse(jsonMatch[0]);
-    const validated = GeneratedPostSchema.parse(parsed);
-    return validated;
+    return response.text || '';
   }
 }
 
 export async function generateXiaohongshuPost(
   repos: TrendingRepo[],
   options: GeneratePostOptions = {}
-): Promise<GeneratedPost> {
+): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY environment variable is required');

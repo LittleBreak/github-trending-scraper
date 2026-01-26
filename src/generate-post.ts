@@ -16,6 +16,7 @@ const OUTPUT_FILE = path.join(process.cwd(), 'output', 'post.txt');
 
 async function main() {
   console.log('Loading trending data...');
+  
   const repos = loadFromJson(INPUT_FILE);
   console.log(`Loaded ${repos.length} repositories`);
 

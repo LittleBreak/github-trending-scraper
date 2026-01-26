@@ -25,7 +25,7 @@ export class GeminiGenerator {
     const maxRepos = options.maxRepos ?? 10;
     const selectedRepos = repos.slice(0, maxRepos);
 
-    const systemPrompt = buildSystemPrompt();
+    const systemPrompt = await buildSystemPrompt();
     const userPrompt = buildUserPrompt(selectedRepos);
 
     const response = await this.client.models.generateContent({

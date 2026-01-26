@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "tsx src/index.ts",
-    "render": "tsx src/renderer/index.ts",
-    "post": "tsx src/generate-post.ts",
     "test": "vitest",
     "test-single": "vitest tests/template-preview.test.ts --run",
     "test:watch": "vitest watch",

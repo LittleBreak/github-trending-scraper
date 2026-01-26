@@ -14,7 +14,7 @@ if (proxyUrl) {
 const INPUT_FILE = path.join(process.cwd(), 'output', 'current_trending.json');
 const OUTPUT_FILE = path.join(process.cwd(), 'output', 'post.txt');
 
-async function main() {
+export async function generatePost() {
   console.log('Loading trending data...');
   
   const repos = loadFromJson(INPUT_FILE);
@@ -30,7 +30,7 @@ async function main() {
   console.log(content.slice(0, 500) + '...');
 }
 
-main().catch((error) => {
-  console.error('Error generating post:', error);
-  process.exit(1);
-});
+// main().catch((error) => {
+//   console.error('Error generating post:', error);
+//   process.exit(1);
+// });

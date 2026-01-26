@@ -2,7 +2,7 @@ import * as path from 'path';
 import { fetchTrending, validateRepos } from './scraper';
 import { saveToJson } from './utils';
 import { renderCards } from './renderer/index.js';
-
+import { generatePost } from './generate-post';
 async function main() {
   const startTime = Date.now();
   try {
@@ -23,6 +23,7 @@ async function main() {
     console.log(`Generated ${cardPaths.length} cards`);
     cardPaths.forEach((cardPath) => console.log(`  - ${cardPath}`));
 
+    await generatePost();
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
     console.log(`Total execution time: ${elapsed}s`);
   } catch (error) {

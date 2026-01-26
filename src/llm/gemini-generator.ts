@@ -33,8 +33,12 @@ export class GeminiGenerator {
       model: this.model,
       contents: [
         {
+          role: 'system',
+          parts: [{ text: `${systemPrompt}\n\n` }],
+        },
+        {
           role: 'user',
-          parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }],
+          parts: [{ text: `${userPrompt}` }],
         },
       ],
       config: {

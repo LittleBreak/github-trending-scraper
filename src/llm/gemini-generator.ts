@@ -4,7 +4,7 @@ import type { GeminiGeneratorConfig, GeneratedPost, GeneratePostOptions } from '
 import { GeneratedPostSchema } from './types';
 import { buildSystemPrompt, buildUserPrompt } from './prompts';
 
-const DEFAULT_MODEL = 'gemini-2.0-flash';
+const DEFAULT_MODEL = 'gemini-3-flash-preview';
 const DEFAULT_TEMPERATURE = 0.7;
 const DEFAULT_MAX_TOKENS = 2048;
 
@@ -65,7 +65,6 @@ export async function generateXiaohongshuPost(
   options: GeneratePostOptions = {}
 ): Promise<GeneratedPost> {
   const apiKey = process.env.GEMINI_API_KEY;
-  console.warn('%c 日志输出  >>>', 'color: red', apiKey);
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY environment variable is required');
   }

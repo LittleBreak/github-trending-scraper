@@ -1,7 +1,14 @@
 import 'dotenv/config';
+import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import * as path from 'path';
 import { loadFromJson, saveToMarkdown } from './utils';
 import { generateXiaohongshuPost } from './llm';
+
+// Setup proxy for fetch if available
+const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || process.env.https_proxy || process.env.http_proxy;
+if (proxyUrl) {
+  setGlobalDispatcher(new ProxyAgent(proxyUrl));
+}
 
 const INPUT_FILE = path.join(process.cwd(), 'output', 'current_trending.json');
 const OUTPUT_FILE = path.join(process.cwd(), 'output', 'post.md');

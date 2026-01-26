@@ -1,5 +1,6 @@
 import type { TrendingRepo } from '../types';
-import { readFile } from 'fs/promises'
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 export const RANK_EMOJIS: Record<number, string> = {
   1: '🥇',
   2: '🥈',
@@ -15,7 +16,7 @@ export const RANK_EMOJIS: Record<number, string> = {
 
 export async function buildSystemPrompt(): Promise<string> {
   const content = await readFile(
-    new URL('./system-prompt.md', import.meta.url),
+    join(__dirname, 'system-prompt.md'),
     'utf-8'
   )
   return content

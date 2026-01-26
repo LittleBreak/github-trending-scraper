@@ -2,8 +2,8 @@ name: Weekly Fetch Trending Repos
 
 on:
   schedule:
-    # Every Monday at 8:00 AM UTC
-    - cron: '0 0 * * 1'
+    # Every 1st of the month at 12:00 Beijing time (04:00 UTC)
+    - cron: '0 4 1 * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
@@ -28,6 +28,8 @@ jobs:
 
       - name: Run scraper
         run: pnpm start
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Commit and push data
         run: |

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "render": "tsx src/renderer/index.ts",
+    "post": "tsx src/generate-post.ts",
     "test": "vitest",
     "test-single": "vitest tests/template-preview.test.ts --run",
     "test:watch": "vitest watch",
@@ -24,8 +25,10 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
+    "@google/genai": "^1.38.0",
     "axios": "^1.13.2",
     "cheerio": "^1.2.0",
+    "dotenv": "^17.2.3",
     "zod": "^4.3.6"
   }
 }

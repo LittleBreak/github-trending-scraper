@@ -1,6 +1,6 @@
-# Red Book Content Factory
+# Github Trending Scraper
 
-An automated pipeline that scrapes GitHub Trending repositories and transforms them into visual card images optimized for Xiaohongshu (小红书) social media content.
+An automated pipeline that scrapes GitHub Trending repositories, renders them as visual card images, and generates Xiaohongshu (小红书) social media content using LLM.
 
 ## Core Function
 
@@ -9,6 +9,7 @@ The project automates the entire workflow from data collection to content genera
 1. **Scrape** - Fetches GitHub Trending page and extracts repository data
 2. **Validate** - Validates data integrity using Zod schemas
 3. **Render** - Generates visually appealing PNG cards using Playwright
+4. **Generate** - Creates Xiaohongshu-style post text using Google Gemini API
 
 ## Tech Stack
 
@@ -17,6 +18,7 @@ The project automates the entire workflow from data collection to content genera
 | Runtime | Node.js + TypeScript |
 | Scraper | Axios + Cheerio |
 | Renderer | Playwright (Chromium) |
+| LLM | Google Gemini API |
 | Validation | Zod |
 | Testing | Vitest |
 | Package Manager | pnpm |
@@ -29,12 +31,18 @@ The project automates the entire workflow from data collection to content genera
 │   ├── scraper.ts            # GitHub Trending scraper
 │   ├── types.ts              # TypeScript interfaces + Zod schemas
 │   ├── utils.ts              # Utility functions
-│   └── renderer/
-│       ├── index.ts          # Renderer exports
-│       ├── card-renderer.ts  # Card rendering logic
-│       └── templates/        # HTML card templates
-├── data/                     # Scraped JSON data
-├── output/cards/             # Generated PNG cards
+│   ├── renderer/
+│   │   ├── index.ts          # Renderer exports
+│   │   ├── card-renderer.ts  # Card rendering logic
+│   │   └── templates/        # HTML card templates
+│   └── llm/
+│       ├── gemini-generator.ts  # Gemini API integration
+│       ├── prompts.ts           # Prompt builders
+│       └── system-prompt.md     # System prompt template
+├── output/                   # Generated output files
+│   ├── current_trending.json # Scraped data
+│   ├── cards/                # Generated PNG cards
+│   └── post.txt              # Generated post text
 ├── tests/                    # Test files
 └── .github/workflows/        # GitHub Actions automation
 ```
@@ -45,14 +53,14 @@ The project automates the entire workflow from data collection to content genera
 # Install dependencies
 pnpm install
 
-# Run full pipeline (scrape + render)
+# Run full pipeline (scrape + render + generate post)
 pnpm start
-
-# Run renderer only (uses existing data)
-pnpm render
 
 # Run tests
 pnpm test
+
+# Run tests in watch mode
+pnpm test:watch
 ```
 
 ## Data Flow
@@ -71,11 +79,15 @@ GitHub Trending HTML
    Playwright Renderer
         ↓
    PNG Cards (3:4 ratio)
+        ↓
+   Gemini API
+        ↓
+   Post Text (output/post.txt)
 ```
 
 ## Output
 
-Each card displays:
+**Cards** - Each card displays:
 - Repository rank
 - Owner and name
 - Description
@@ -85,15 +97,25 @@ Each card displays:
 
 Cards are saved to `output/cards/` with naming format: `top{rank}.png`
 
+**Post** - Xiaohongshu-style post text saved to `output/post.txt`
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GEMINI_API_KEY` | Yes | Google Gemini API key for post generation |
+| `HTTPS_PROXY` / `HTTP_PROXY` | No | Proxy for Gemini API calls |
+
 ## Automation
 
 A GitHub Actions workflow runs every Monday at 00:00 UTC to:
 1. Fetch the latest trending repositories
 2. Generate new card images
-3. Auto-commit the results to the repository
+3. Generate Xiaohongshu post text
+4. Auto-commit the results to the repository
 
 Manual trigger is also available via `workflow_dispatch`.
 
 ## License
 
-ISC
+MIT License

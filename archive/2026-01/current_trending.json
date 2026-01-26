@@ -1,0 +1,112 @@
+[
+  {
+    "rank": 1,
+    "owner": "anomalyco",
+    "name": "opencode",
+    "url": "https://github.com/anomalyco/opencode",
+    "description": "The open source coding agent.",
+    "language": "TypeScript",
+    "stars": "88507",
+    "forks": "8075",
+    "todayStars": "45294 stars this month"
+  },
+  {
+    "rank": 2,
+    "owner": "obra",
+    "name": "superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "description": "An agentic skills framework & software development methodology that works.",
+    "language": "Shell",
+    "stars": "36697",
+    "forks": "2796",
+    "todayStars": "24448 stars this month"
+  },
+  {
+    "rank": 3,
+    "owner": "BloopAI",
+    "name": "vibe-kanban",
+    "url": "https://github.com/BloopAI/vibe-kanban",
+    "description": "Get 10X more out of Claude Code, Codex or any coding agent",
+    "language": "Rust",
+    "stars": "19156",
+    "forks": "1782",
+    "todayStars": "12275 stars this month"
+  },
+  {
+    "rank": 4,
+    "owner": "anthropics",
+    "name": "skills",
+    "url": "https://github.com/anthropics/skills",
+    "description": "Public repository for Agent Skills",
+    "language": "Python",
+    "stars": "53960",
+    "forks": "5261",
+    "todayStars": "25723 stars this month"
+  },
+  {
+    "rank": 5,
+    "owner": "anthropics",
+    "name": "claude-code",
+    "url": "https://github.com/anthropics/claude-code",
+    "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+    "language": "Shell",
+    "stars": "60873",
+    "forks": "4546",
+    "todayStars": "12252 stars this month"
+  },
+  {
+    "rank": 6,
+    "owner": "shareAI-lab",
+    "name": "learn-claude-code",
+    "url": "https://github.com/shareAI-lab/learn-claude-code",
+    "description": "Bash is all you need！write a claude code with only 16 line code",
+    "language": "Python",
+    "stars": "15354",
+    "forks": "3430",
+    "todayStars": "3552 stars this month"
+  },
+  {
+    "rank": 7,
+    "owner": "bytedance",
+    "name": "UI-TARS-desktop",
+    "url": "https://github.com/bytedance/UI-TARS-desktop",
+    "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
+    "language": "TypeScript",
+    "stars": "24839",
+    "forks": "2397",
+    "todayStars": "4747 stars this month"
+  },
+  {
+    "rank": 8,
+    "owner": "usememos",
+    "name": "memos",
+    "url": "https://github.com/usememos/memos",
+    "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
+    "language": "Go",
+    "stars": "55755",
+    "forks": "4003",
+    "todayStars": "8344 stars this month"
+  },
+  {
+    "rank": 9,
+    "owner": "steveyegge",
+    "name": "beads",
+    "url": "https://github.com/steveyegge/beads",
+    "description": "Beads - A memory upgrade for your coding agent",
+    "language": "Go",
+    "stars": "12880",
+    "forks": "778",
+    "todayStars": "6490 stars this month"
+  },
+  {
+    "rank": 10,
+    "owner": "Lissy93",
+    "name": "web-check",
+    "url": "https://github.com/Lissy93/web-check",
+    "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
+    "language": "TypeScript",
+    "stars": "31076",
+    "forks": "2436",
+    "todayStars": "3947 stars this month"
+  }
+]

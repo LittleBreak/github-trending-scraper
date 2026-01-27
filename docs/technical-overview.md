@@ -17,6 +17,31 @@ github-trending-scraper 是一个自动化内容生产流水线，它能够：
 
 只需一条命令 `pnpm start`，即可完成从数据采集到内容产出的全部流程，并通过 GitHub Actions 实现每月定时执行与发布。
 
+### 2.1 卡片模板一览
+
+以下是项目内置的 18 套卡片模板渲染效果：
+
+<p>
+<img src="./card-previews/1.png" width="300" height="400" alt="模板 1" />
+<img src="./card-previews/2.png" width="300" height="400" alt="模板 2" />
+<img src="./card-previews/3.png" width="300" height="400" alt="模板 3" />
+<img src="./card-previews/4.png" width="300" height="400" alt="模板 4" />
+<img src="./card-previews/5.png" width="300" height="400" alt="模板 5" />
+<img src="./card-previews/6.png" width="300" height="400" alt="模板 6" />
+<img src="./card-previews/7.png" width="300" height="400" alt="模板 7" />
+<img src="./card-previews/8.png" width="300" height="400" alt="模板 8" />
+<img src="./card-previews/9.png" width="300" height="400" alt="模板 9" />
+<img src="./card-previews/10.png" width="300" height="400" alt="模板 10" />
+<img src="./card-previews/11.png" width="300" height="400" alt="模板 11" />
+<img src="./card-previews/12.png" width="300" height="400" alt="模板 12" />
+<img src="./card-previews/13.png" width="300" height="400" alt="模板 13" />
+<img src="./card-previews/14.png" width="300" height="400" alt="模板 14" />
+<img src="./card-previews/15.png" width="300" height="400" alt="模板 15" />
+<img src="./card-previews/16.png" width="300" height="400" alt="模板 16" />
+<img src="./card-previews/17.png" width="300" height="400" alt="模板 17" />
+<img src="./card-previews/18.png" width="300" height="400" alt="模板 18" />
+</p>
+
 ## 3、核心能力
 
 | 能力 | 说明 |

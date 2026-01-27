@@ -5,7 +5,7 @@ import { buildSystemPrompt, buildUserPrompt } from './prompts';
 
 const DEFAULT_MODEL = 'gemini-3-flash-preview';
 const DEFAULT_TEMPERATURE = 0.7;
-const DEFAULT_MAX_TOKENS = 2048;
+const DEFAULT_MAX_TOKENS = 4096;
 
 export class GeminiGenerator {
   private client: GoogleGenAI;

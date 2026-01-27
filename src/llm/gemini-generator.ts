@@ -48,6 +48,39 @@ export class GeminiGenerator {
 
     return response.text || '';
   }
+
+  async *generatePostStream(
+    repos: TrendingRepo[],
+    options: GeneratePostOptions = {}
+  ): AsyncGenerator<string> {
+    const maxRepos = options.maxRepos ?? 10;
+    const selectedRepos = repos.slice(0, maxRepos);
+
+    const systemPrompt = await buildSystemPrompt();
+    const userPrompt = buildUserPrompt(selectedRepos);
+
+    const stream = await this.client.models.generateContentStream({
+      model: this.model,
+      contents: [
+        {
+          role: 'system',
+          parts: [{ text: `${systemPrompt}\n\n` }],
+        },
+        {
+          role: 'user',
+          parts: [{ text: `${userPrompt}` }],
+        },
+      ],
+      config: {
+        temperature: this.temperature,
+        maxOutputTokens: DEFAULT_MAX_TOKENS,
+      },
+    });
+
+    for await (const chunk of stream) {
+      yield chunk.text || '';
+    }
+  }
 }
 
 export async function generateXiaohongshuPost(
@@ -61,4 +94,17 @@ export async function generateXiaohongshuPost(
 
   const generator = new GeminiGenerator({ apiKey });
   return generator.generatePost(repos, options);
+}
+
+export async function* generateXiaohongshuPostStream(
+  repos: TrendingRepo[],
+  options: GeneratePostOptions = {}
+): AsyncGenerator<string> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error('GEMINI_API_KEY environment variable is required');
+  }
+
+  const generator = new GeminiGenerator({ apiKey });
+  yield* generator.generatePostStream(repos, options);
 }

@@ -25,6 +25,8 @@ export async function generatePost() {
 
   fs.writeFileSync(OUTPUT_FILE, content, 'utf-8');
   console.log(`Post saved to ${OUTPUT_FILE}`);
+  console.log(`the Post content is : ${content}`);
+
 
   console.log('\n--- Generated Post ---');
   console.log(content.slice(0, 500) + '...');

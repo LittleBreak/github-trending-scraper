@@ -31,10 +31,22 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Commit and push data
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +%Y.%m)" >> $GITHUB_OUTPUT
+
+      - name: Create zip archive
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add output/
-          git diff --staged --quiet || git commit -m "chore: update trending repos data"
-          git push
+          cd output
+          zip -r ../trending-repos-${{ steps.date.outputs.date }}.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.date.outputs.date }}
+          name: Trending Repos v${{ steps.date.outputs.date }}
+          body: |
+            GitHub Trending 数据 - ${{ steps.date.outputs.date }}
+
+            包含本月抓取的 trending repos 数据和卡片图片。
+          files: trending-repos-*.zip

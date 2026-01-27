@@ -30,16 +30,3 @@ output/post.md
 | 强调 | `**加粗**` | emoji 图标引导（如 💡） |
 | 列表 | `- item` | 数字 emoji（①②③）或符号 |
 | 排名 | 纯数字 | 奖牌 emoji（🥇🥈🥉）+ 数字 emoji（4️⃣5️⃣...） |
-
-## 关键发现（来自数据分析）
-
-- AI Coding Agent 主导榜单（6/10 与 Claude Code 生态相关）
-- 核心项目：opencode, vibe-kanban, superpowers, skills, claude-code
-- 字节跳动 UI-TARS 入榜
-- memos 代表自托管/隐私优先趋势
-
-## 验证清单
-
-- [ ] 确认文件已创建在 `output/` 目录
-- [ ] 检查内容格式正确
-- [ ] 检查数据准确

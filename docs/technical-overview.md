@@ -185,13 +185,8 @@ AI微调样式 + 插入占位符（{{rank}}、{{name}} 等）
 
 18 套模板涵盖了赛博朋克、毛玻璃、蓝图、杂志、像素风、漫画风等多种视觉风格。
 
-## 7、项目总结
+## 7、结尾
 
-1. **端到端自动化**：一条命令完成「数据采集 → 校验 → 可视化 → AI 文案」全流程
-2. **18 套精美模板**：涵盖多种视觉风格（毛玻璃、暗色、渐变等），适配小红书 3:4 图片比例
-3. **Zod 运行时校验**：在 TypeScript 编译期类型检查之外，增加运行时数据保障
-4. **流式 AI 生成**：基于 AsyncGenerator 的流式输出，实时反馈生成进度
-5. **Prompt 工程分离**：System Prompt 独立为 Markdown 文件，便于非技术人员迭代
-6. **CI/CD 全自动**：GitHub Actions 定时执行 + 自动打包发布，零人工干预
-7. **轻量爬虫设计**：Cheerio 解析静态 HTML，无需启动浏览器，资源高效
-8. **高清卡片渲染**：2x 设备像素比 + Playwright 截图，确保图片清晰锐利
+本项目中的代码与文档大部分由 AI 生成。如果大家对相关代码或 Prompt 写法感兴趣，欢迎关注或 Star 我的github仓库：
+
+GitHub: [https://github.com/LittleBreak/github-trending-scraper](https://github.com/LittleBreak/github-trending-scraper)

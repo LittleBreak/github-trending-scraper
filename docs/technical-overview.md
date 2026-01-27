@@ -187,6 +187,15 @@ AI微调样式 + 插入占位符（{{rank}}、{{name}} 等）
 
 ## 7、结尾
 
-本项目中的代码与文档大部分由 AI 生成。如果大家对相关代码或 Prompt 写法感兴趣，欢迎关注或 Star 我的github仓库：
+本项目中的代码与文档大部分由 AI 生成。如果大家对相关代码或 Prompt 写法感兴趣，欢迎关注或 Star 我的github仓库，包含开发过程中所有的prompt和文档。
 
 GitHub: [https://github.com/LittleBreak/github-trending-scraper](https://github.com/LittleBreak/github-trending-scraper)
+
+
+如果大家对具体生成的小红书文章感兴趣，可以去关注我的小红书账号，看下实际效果～
+
+小红书文章: [GitHub 本月最火 Top10，AI Coding 霸榜！](https://www.xiaohongshu.com/discovery/item/6976204a000000000b0100ff?source=webshare&xhsshare=pc_web&xsec_token=ABtsM9pwf4mv56dzPNo_fvi4-O2uqnQyr-QIzO1kLWDnk=&xsec_source=pc_share)
+
+另外我也开放共享了卡片模板的 Stitch 项目，大家可以直接访问并做任意编辑，没任何限制
+
+stitch: [github trend card stitch card project](https://stitch.withgoogle.com/projects/12543921965028912020)

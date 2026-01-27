@@ -116,6 +116,12 @@ A GitHub Actions workflow runs every Monday at 00:00 UTC to:
 
 Manual trigger is also available via `workflow_dispatch`.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LittleBreak/github-trending-scraper&type=date&legend=top-left)](https://www.star-history.com/#LittleBreak/github-trending-scraper&type=date&legend=top-left)
+
+
 ## License
 
 MIT License
+https://www.star-history.com/#LittleBreak/github-trending-scraper&type=date&legend=top-left

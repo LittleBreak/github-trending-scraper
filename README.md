@@ -127,7 +127,7 @@ Manual trigger is also available via `workflow_dispatch`.
 
 小红书文章: [GitHub 本月最火 Top10，AI Coding 霸榜！](https://www.xiaohongshu.com/discovery/item/6976204a000000000b0100ff?source=webshare&xhsshare=pc_web&xsec_token=ABtsM9pwf4mv56dzPNo_fvi4-O2uqnQyr-QIzO1kLWDnk=&xsec_source=pc_share)
 
-另外我也开放共享了卡片模板的 Stitch 项目，大家可以直接访问并做任意编辑，没任何限制
+另外我也开放共享了卡片模板的 Stitch 项目，大家可以直接访问并做任意编辑，没任何限制,lol
 
 stitch: [github trend card stitch card project](https://stitch.withgoogle.com/projects/12543921965028912020)
 

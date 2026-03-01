@@ -9,8 +9,22 @@ export class CardRenderer {
   private templatePath: string;
 
   constructor(templatePath?: string) {
-    this.templatePath = templatePath || path.join(__dirname, 'templates', '9.html');
+    this.templatePath = templatePath || this.pickRandomTemplate();
+    if (!fs.existsSync(this.templatePath)) {
+      throw new Error(`Template not found: ${this.templatePath}`);
+    }
+    console.log(`Using template: ${path.basename(this.templatePath)}`);
     this.template = fs.readFileSync(this.templatePath, 'utf-8');
+  }
+
+  private pickRandomTemplate(): string {
+    const templatesDir = path.join(__dirname, 'templates');
+    const files = fs.readdirSync(templatesDir).filter((f) => f.endsWith('.html'));
+    if (files.length === 0) {
+      throw new Error(`No HTML templates found in ${templatesDir}`);
+    }
+    const picked = files[Math.floor(Math.random() * files.length)];
+    return path.join(templatesDir, picked);
   }
 
   async init(): Promise<void> {
@@ -92,8 +106,8 @@ export class CardRenderer {
   }
 }
 
-export async function renderCards(repos: TrendingRepo[], outputDir?: string): Promise<string[]> {
-  const renderer = new CardRenderer();
+export async function renderCards(repos: TrendingRepo[], outputDir?: string, templatePath?: string): Promise<string[]> {
+  const renderer = new CardRenderer(templatePath);
   await renderer.init();
 
   try {

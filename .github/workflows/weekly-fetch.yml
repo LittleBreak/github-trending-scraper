@@ -4,7 +4,11 @@ on:
   schedule:
     # Every 1st of the month at 12:00 Beijing time (04:00 UTC)
     - cron: '0 4 1 * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      template:
+        description: 'Card template number (1-18, leave empty for random)'
+        required: false
 
 permissions:
   contents: write
@@ -30,6 +34,7 @@ jobs:
         run: pnpm start
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TEMPLATE: ${{ github.event.inputs.template || vars.TEMPLATE }}
 
       - name: Get current date
         id: date

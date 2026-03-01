@@ -1,112 +1,112 @@
 [
   {
     "rank": 1,
-    "owner": "anomalyco",
-    "name": "opencode",
-    "url": "https://github.com/anomalyco/opencode",
-    "description": "The open source coding agent.",
+    "owner": "openclaw",
+    "name": "openclaw",
+    "url": "https://github.com/openclaw/openclaw",
+    "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
     "language": "TypeScript",
-    "stars": "89075",
-    "forks": "8145",
-    "todayStars": "46388 stars this month"
+    "stars": "241485",
+    "forks": "46650",
+    "todayStars": "114742 stars this month"
   },
   {
     "rank": 2,
+    "owner": "badlogic",
+    "name": "pi-mono",
+    "url": "https://github.com/badlogic/pi-mono",
+    "description": "AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods",
+    "language": "TypeScript",
+    "stars": "18294",
+    "forks": "1895",
+    "todayStars": "14245 stars this month"
+  },
+  {
+    "rank": 3,
+    "owner": "KeygraphHQ",
+    "name": "shannon",
+    "url": "https://github.com/KeygraphHQ/shannon",
+    "description": "Fully autonomous AI hacker to find actual exploits in your web apps. Shannon has achieved a 96.15% success rate on the hint-free, source-aware XBOW Benchmark.",
+    "language": "TypeScript",
+    "stars": "25819",
+    "forks": "2546",
+    "todayStars": "21665 stars this month"
+  },
+  {
+    "rank": 4,
+    "owner": "Jeffallan",
+    "name": "claude-skills",
+    "url": "https://github.com/Jeffallan/claude-skills",
+    "description": "66 Specialized Skills for Full-Stack Developers. Transform Claude Code into your expert pair programmer.",
+    "language": "Python",
+    "stars": "3947",
+    "forks": "238",
+    "todayStars": "3668 stars this month"
+  },
+  {
+    "rank": 5,
+    "owner": "openai",
+    "name": "skills",
+    "url": "https://github.com/openai/skills",
+    "description": "Skills Catalog for Codex",
+    "language": "Python",
+    "stars": "10239",
+    "forks": "570",
+    "todayStars": "7974 stars this month"
+  },
+  {
+    "rank": 6,
+    "owner": "tobi",
+    "name": "qmd",
+    "url": "https://github.com/tobi/qmd",
+    "description": "mini cli search engine for your docs, knowledge bases, meeting notes, whatever. Tracking current sota approaches while being all local",
+    "language": "TypeScript",
+    "stars": "11181",
+    "forks": "618",
+    "todayStars": "6510 stars this month"
+  },
+  {
+    "rank": 7,
+    "owner": "thedotmack",
+    "name": "claude-mem",
+    "url": "https://github.com/thedotmack/claude-mem",
+    "description": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",
+    "language": "TypeScript",
+    "stars": "31899",
+    "forks": "2177",
+    "todayStars": "16339 stars this month"
+  },
+  {
+    "rank": 8,
+    "owner": "steipete",
+    "name": "gogcli",
+    "url": "https://github.com/steipete/gogcli",
+    "description": "Google Suite CLI: Gmail, GCal, GDrive, GContacts.",
+    "language": "Go",
+    "stars": "5199",
+    "forks": "396",
+    "todayStars": "3997 stars this month"
+  },
+  {
+    "rank": 9,
     "owner": "obra",
     "name": "superpowers",
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "37179",
-    "forks": "2849",
-    "todayStars": "24933 stars this month"
-  },
-  {
-    "rank": 3,
-    "owner": "BloopAI",
-    "name": "vibe-kanban",
-    "url": "https://github.com/BloopAI/vibe-kanban",
-    "description": "Get 10X more out of Claude Code, Codex or any coding agent",
-    "language": "Rust",
-    "stars": "19264",
-    "forks": "1793",
-    "todayStars": "12487 stars this month"
-  },
-  {
-    "rank": 4,
-    "owner": "anthropics",
-    "name": "skills",
-    "url": "https://github.com/anthropics/skills",
-    "description": "Public repository for Agent Skills",
-    "language": "Python",
-    "stars": "54559",
-    "forks": "5326",
-    "todayStars": "26634 stars this month"
-  },
-  {
-    "rank": 5,
-    "owner": "anthropics",
-    "name": "claude-code",
-    "url": "https://github.com/anthropics/claude-code",
-    "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
-    "language": "Shell",
-    "stars": "61050",
-    "forks": "4552",
-    "todayStars": "12407 stars this month"
-  },
-  {
-    "rank": 6,
-    "owner": "shareAI-lab",
-    "name": "learn-claude-code",
-    "url": "https://github.com/shareAI-lab/learn-claude-code",
-    "description": "Bash is all you need！write a claude code with only 16 line code",
-    "language": "Python",
-    "stars": "15406",
-    "forks": "3436",
-    "todayStars": "3655 stars this month"
-  },
-  {
-    "rank": 7,
-    "owner": "bytedance",
-    "name": "UI-TARS-desktop",
-    "url": "https://github.com/bytedance/UI-TARS-desktop",
-    "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
-    "language": "TypeScript",
-    "stars": "24870",
-    "forks": "2401",
-    "todayStars": "4802 stars this month"
-  },
-  {
-    "rank": 8,
-    "owner": "usememos",
-    "name": "memos",
-    "url": "https://github.com/usememos/memos",
-    "description": "An open-source, self-hosted note-taking service. Your thoughts, your data, your control — no tracking, no ads, no subscription fees.",
-    "language": "Go",
-    "stars": "55822",
-    "forks": "4006",
-    "todayStars": "8480 stars this month"
-  },
-  {
-    "rank": 9,
-    "owner": "steveyegge",
-    "name": "beads",
-    "url": "https://github.com/steveyegge/beads",
-    "description": "Beads - A memory upgrade for your coding agent",
-    "language": "Go",
-    "stars": "13006",
-    "forks": "783",
-    "todayStars": "6567 stars this month"
+    "stars": "66324",
+    "forks": "5068",
+    "todayStars": "25041 stars this month"
   },
   {
     "rank": 10,
-    "owner": "Lissy93",
-    "name": "web-check",
-    "url": "https://github.com/Lissy93/web-check",
-    "description": "🕵️‍♂️ All-in-one OSINT tool for analysing any website",
-    "language": "TypeScript",
-    "stars": "31146",
-    "forks": "2438",
-    "todayStars": "4068 stars this month"
+    "owner": "huggingface",
+    "name": "skills",
+    "url": "https://github.com/huggingface/skills",
+    "description": "",
+    "language": "Python",
+    "stars": "7607",
+    "forks": "453",
+    "todayStars": "6379 stars this month"
   }
 ]

@@ -1,63 +1,63 @@
-🚀 炸了！GitHub Top 10 全是 AI Agent？程序员要起飞了！
+🚀 程序员必看！本周 GitHub 趋势榜，AI 助手已经进化成这样了？
 
-各位开发小伙伴们，这周的 GitHub 简直是 Agent 的疯狂星期四！Claude Code 及其周边生态直接霸榜，前十名里几乎全是 AI 编程助手相关的神器。感觉程序员的生产力已经不是在翻倍，而是在坐火箭了！快来看看本周最值得关注的开源项目，每一个都可能重塑你的代码流。✨
+各位卷王小伙伴们注意啦！这周的 GitHub 简直被 AI Agent 承包了！不仅有狂揽 24 万星的神级助手，还有能帮你找漏洞的 AI 黑客。感觉现在的开源社区已经进入了给 AI 叠 buff 的疯狂时代！快来收好这份本周最火的 Top 10 清单，让你的开发效率原地起飞。✨
 
 ━━━━━━━━━━
 
-🥇 opencode
-开源界的编程特工天花板！本月狂揽 4.6w+ 星，作为开源的 Coding Agent，它正在挑战所有闭源产品的地位。
-💡 亮点：TypeScript 编写，社区热度极高，想自建 AI 开发助手必看。
-🔗 链接: https://github.com/anomalyco/opencode
+🥇 openclaw
+全能型的个人 AI 助手！本月猛增 11 万星，简直是开源界的超级黑马。它支持任何操作系统和平台，主打一个龙虾式的灵活与强大！
+💡 亮点：TypeScript 编写，24w+ 总星数见证其实力，是打造私人 AI 助手的首选。
+🔗 链接: https://github.com/openclaw/openclaw
 
-🥈 superpowers
-给你的 AI 穿上外骨骼！这是一套真正落地的 Agent 技能框架和软件开发方法论。
-💡 亮点：Shell 脚本驱动，用最硬核的方式解决 AI 开发中的实际痛点。
+🥈 pi-mono
+AI 代理的工具箱大全！从命令行工具到统一的 LLM API，再到 Web UI 库，甚至连 Slack 机器人和 vLLM 容器都帮你准备好了。
+💡 亮点：一站式解决 AI Agent 的开发痛点，本月热度暴涨 1.4w+ 星。
+🔗 链接: https://github.com/badlogic/pi-mono
+
+🥉 shannon
+全自动 AI 黑客来袭！专门用来寻找 Web 应用中的漏洞。在 XBOW 基准测试中达到了惊人的 96.15% 成功率，安全圈的小伙伴颤抖了吗？
+💡 亮点：极高的漏洞挖掘成功率，展示了 AI 在网络安全领域的恐怖潜力。
+🔗 链接: https://github.com/KeygraphHQ/shannon
+
+4️⃣ claude-skills
+全栈开发者的 66 个特种技能包！直接把你的 Claude Code 变成专家级的结对编程伙伴，涵盖了各种开发场景。
+💡 亮点：专为全栈打造，Python 驱动，让 AI 更懂你的代码逻辑。
+🔗 链接: https://github.com/Jeffallan/claude-skills
+
+5️⃣ openai/skills
+OpenAI 官方出品的 Codex 技能目录！想看顶尖大厂是怎么定义 AI 技能标准的？看这个项目就够了。
+💡 亮点：官方背书，虽然星数增长稳健，但依然是行业风向标。
+🔗 链接: https://github.com/openai/skills
+
+6️⃣ qmd
+本地化的文档搜索引擎！无论是会议纪要还是知识库，这个迷你 CLI 工具都能帮你快速检索，而且完全运行在本地。
+💡 亮点：隐私友好，本地运行，追求极致的搜索响应速度。
+🔗 链接: https://github.com/tobi/qmd
+
+7️⃣ claude-mem
+给 Claude 装上长久记忆！这个插件能自动记录你的编程会话，压缩背景信息并在未来会话中精准注入。
+💡 亮点：解决 AI 遗忘问题的神器，让 AI 助手越用越懂你。
+🔗 链接: https://github.com/thedotmack/claude-mem
+
+8️⃣ gogcli
+Google 全家桶的终端控制台！Gmail、日历、云盘、联系人，现在都能通过命令行轻松搞定，极客范儿十足。
+💡 亮点：Go 语言编写，追求极致的效率，适合重度终端用户。
+🔗 链接: https://github.com/steipete/gogcli
+
+9️⃣ superpowers
+一套真正行之有效的 Agent 技能框架！它不仅是代码，更是一套软件开发方法论，帮助开发者更好地构建 AI 代理。
+💡 亮点：本月狂揽 2.5w 星，证明了开发者对系统化 AI 开发方案的渴求。
 🔗 链接: https://github.com/obra/superpowers
 
-🥉 vibe-kanban
-效率狂魔专属！让 Claude Code 或任何编程 Agent 的效率直接拉满 10 倍的看板神器。
-💡 亮点：Rust 编写保证极致性能，通过可视化看板完美管理 AI 的任务流。
-🔗 链接: https://github.com/BloopAI/vibe-kanban
-
-4️⃣ skills
-Anthropic 官方出品的 Agent 技能库！想知道顶级 AI 是如何学习和执行复杂任务的吗？看这个就够了。
-💡 亮点：5.4w+ 星认可，Python 生态，是学习 Agent 技能构建的教科书级项目。
-🔗 链接: https://github.com/anthropics/skills
-
-5️⃣ claude-code
-本周的主角登场！住在你终端里的 AI 编程特工，能直接理解代码库、处理 Git 工作流。
-💡 亮点：原生支持自然语言指令，彻底改变了我们在命令行写代码的体验。
-🔗 链接: https://github.com/anthropics/claude-code
-
-6️⃣ learn-claude-code
-大道至简！仅仅用 16 行代码就能实现一个 Claude Code 核心逻辑，带你拆解大厂黑科技。
-💡 亮点：Python 编写，极低的学习门槛，让你瞬间看透 Agent 的底层逻辑。
-🔗 链接: https://github.com/shareAI-lab/learn-claude-code
-
-7️⃣ UI-TARS-desktop
-字节跳动出品！开源的多模态 AI Agent 栈，连接顶级模型与 Agent 基础设施。
-💡 亮点：TypeScript 构建，主打多模态交互，让 AI 真正能“看见”并操作桌面。
-🔗 链接: https://github.com/bytedance/UI-TARS-desktop
-
-8️⃣ memos
-隐私党福利！一个开源、自托管的碎片化笔记服务，你的数据你做主。
-💡 亮点：Go 语言开发，无追踪无广告，是 Notion 或 Flomo 的完美私有化替代品。
-🔗 链接: https://github.com/usememos/memos
-
-9️⃣ beads
-给你的编程 Agent 装上“强力大脑”！专门为 AI 助手设计的内存/记忆升级组件。
-💡 亮点：解决了 AI 容易“忘事儿”的问题，让长周期开发任务变得更加稳定。
-🔗 链接: https://github.com/steveyegge/beads
-
-🔟 web-check
-全能型网站侦探！一键分析任何网站的 OSINT 渗透测试工具。
-💡 亮点：TypeScript 编写，信息收集神器，安全大佬和 Web 开发者人手必备。
-🔗 链接: https://github.com/Lissy93/web-check
+🔟 huggingface/skills
+Hugging Face 也入场了！虽然描述简洁，但在 AI 社区的影响力毋庸置疑，这预示着技能库生态的全面爆发。
+💡 亮点：Python 生态，背靠 HF 强大的模型社区。
+🔗 链接: https://github.com/huggingface/skills
 
 ━━━━━━━━━━
 
-本周 GitHub 趋势显示，Agentic Coding（代理化编程）已经进入全面爆发期，AI 正在从“对话框里的聊天机器人”进化为“终端里的数字员工”。Anthropic 和字节跳动等大厂的密集入局，预示着 AI Agent 将成为今年技术竞争的最核心战场。
+本周趋势显示，AI 正在从只会聊天的机器人进化为具备专业 Skills（技能）和 Memory（记忆）的数字员工。各大厂和开源社区都在疯狂卷技能库，这意味着未来的开发模式将是：人负责定义目标，AI 调动技能库去精准执行。
 
-你觉得 AI Agent 真的能取代初级程序员的工作吗？或者你最近挖掘到了哪些好用的 AI 提效神器？欢迎在评论区交流心得，我们一起变强！👇
+你觉得 AI 真的能进化成独立完成项目的数字员工吗？或者你最近挖掘到了哪些好用的 AI 神器？欢迎在评论区交流心得，我们一起变强！👇
 
-#GitHub #程序员 #AI编程 #ClaudeCode #开源项目 #技术干货 #开发工具 #人工智能
+#GitHub #程序员 #AI编程 #开源项目 #技术干货 #开发工具 #人工智能 #Agent

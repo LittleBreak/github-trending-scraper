@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import * as path from 'path';
 import { fetchTrending, validateRepos } from './scraper';
 import { saveToJson } from './utils';
@@ -19,7 +20,11 @@ async function main() {
     console.log(`Data saved to: ${outputPath}`);
 
     console.log('Rendering cards...');
-    const cardPaths = await renderCards(validatedRepos);
+    const templateName = process.env.TEMPLATE;
+    const templatePath = templateName
+      ? path.join(__dirname, 'renderer', 'templates', `${templateName}.html`)
+      : undefined;
+    const cardPaths = await renderCards(validatedRepos, undefined, templatePath);
     console.log(`Generated ${cardPaths.length} cards`);
     cardPaths.forEach((cardPath) => console.log(`  - ${cardPath}`));
 

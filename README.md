@@ -54,7 +54,11 @@ The project automates the entire workflow from data collection to content genera
 pnpm install
 
 # Run full pipeline (scrape + render + generate post)
+# Uses a random card template by default
 pnpm start
+
+# Specify a card template by number (templates 1-18 available)
+TEMPLATE=5 pnpm start
 
 # Run tests
 pnpm test
@@ -105,6 +109,7 @@ Cards are saved to `output/cards/` with naming format: `top{rank}.png`
 |----------|----------|-------------|
 | `GEMINI_API_KEY` | Yes | Google Gemini API key for post generation |
 | `HTTPS_PROXY` / `HTTP_PROXY` | No | Proxy for Gemini API calls |
+| `TEMPLATE` | No | Card template number (1-18). Random if not set |
 
 ## Automation
 

@@ -6,8 +6,8 @@
     "url": "https://github.com/openclaw/openclaw",
     "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
     "language": "TypeScript",
-    "stars": "241485",
-    "forks": "46650",
+    "stars": "241706",
+    "forks": "46697",
     "todayStars": "114742 stars this month"
   },
   {
@@ -17,8 +17,8 @@
     "url": "https://github.com/badlogic/pi-mono",
     "description": "AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods",
     "language": "TypeScript",
-    "stars": "18294",
-    "forks": "1895",
+    "stars": "18313",
+    "forks": "1899",
     "todayStars": "14245 stars this month"
   },
   {
@@ -28,8 +28,8 @@
     "url": "https://github.com/KeygraphHQ/shannon",
     "description": "Fully autonomous AI hacker to find actual exploits in your web apps. Shannon has achieved a 96.15% success rate on the hint-free, source-aware XBOW Benchmark.",
     "language": "TypeScript",
-    "stars": "25819",
-    "forks": "2546",
+    "stars": "25828",
+    "forks": "2547",
     "todayStars": "21665 stars this month"
   },
   {
@@ -39,8 +39,8 @@
     "url": "https://github.com/Jeffallan/claude-skills",
     "description": "66 Specialized Skills for Full-Stack Developers. Transform Claude Code into your expert pair programmer.",
     "language": "Python",
-    "stars": "3947",
-    "forks": "238",
+    "stars": "3961",
+    "forks": "239",
     "todayStars": "3668 stars this month"
   },
   {
@@ -50,8 +50,8 @@
     "url": "https://github.com/openai/skills",
     "description": "Skills Catalog for Codex",
     "language": "Python",
-    "stars": "10239",
-    "forks": "570",
+    "stars": "10247",
+    "forks": "572",
     "todayStars": "7974 stars this month"
   },
   {
@@ -61,7 +61,7 @@
     "url": "https://github.com/tobi/qmd",
     "description": "mini cli search engine for your docs, knowledge bases, meeting notes, whatever. Tracking current sota approaches while being all local",
     "language": "TypeScript",
-    "stars": "11181",
+    "stars": "11190",
     "forks": "618",
     "todayStars": "6510 stars this month"
   },
@@ -72,8 +72,8 @@
     "url": "https://github.com/thedotmack/claude-mem",
     "description": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",
     "language": "TypeScript",
-    "stars": "31899",
-    "forks": "2177",
+    "stars": "31920",
+    "forks": "2178",
     "todayStars": "16339 stars this month"
   },
   {
@@ -83,7 +83,7 @@
     "url": "https://github.com/steipete/gogcli",
     "description": "Google Suite CLI: Gmail, GCal, GDrive, GContacts.",
     "language": "Go",
-    "stars": "5199",
+    "stars": "5203",
     "forks": "396",
     "todayStars": "3997 stars this month"
   },
@@ -94,8 +94,8 @@
     "url": "https://github.com/obra/superpowers",
     "description": "An agentic skills framework & software development methodology that works.",
     "language": "Shell",
-    "stars": "66324",
-    "forks": "5068",
+    "stars": "66413",
+    "forks": "5074",
     "todayStars": "25041 stars this month"
   },
   {
@@ -105,8 +105,8 @@
     "url": "https://github.com/huggingface/skills",
     "description": "",
     "language": "Python",
-    "stars": "7607",
-    "forks": "453",
+    "stars": "7618",
+    "forks": "455",
     "todayStars": "6379 stars this month"
   }
 ]

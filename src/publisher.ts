@@ -197,7 +197,6 @@ export async function publishToXiaohongshu(content: PublishContent): Promise<voi
         content: content.content,
         images: containerImages,
         tags: content.tags,
-        is_original: true,
       });
 
       console.log('Published to Xiaohongshu successfully!');

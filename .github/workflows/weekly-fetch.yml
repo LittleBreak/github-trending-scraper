@@ -38,7 +38,23 @@ jobs:
 
       - name: Start xiaohongshu-mcp service
         if: vars.ENABLE_PUBLISH == 'true'
-        run: docker compose up -d xiaohongshu-mcp && sleep 5
+        run: |
+          docker compose up -d xiaohongshu-mcp
+          echo "Waiting for xiaohongshu-mcp service to be ready..."
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null -X POST http://localhost:18060/mcp \
+              -H 'Content-Type: application/json' \
+              -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"healthcheck","version":"1.0.0"}},"id":1}'; then
+              echo "Service is ready after ${i}s"
+              break
+            fi
+            if [ "$i" -eq 30 ]; then
+              echo "Service failed to start within 30s"
+              docker compose logs xiaohongshu-mcp
+              exit 1
+            fi
+            sleep 1
+          done
 
       - name: Run scraper
         run: pnpm start
@@ -49,7 +65,7 @@ jobs:
           XHS_MCP_URL: http://localhost:18060/mcp
 
       - name: Stop xiaohongshu-mcp service
-        if: vars.ENABLE_PUBLISH == 'true'
+        if: always() && vars.ENABLE_PUBLISH == 'true'
         run: docker compose down
 
       - name: Get current date

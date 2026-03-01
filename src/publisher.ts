@@ -57,12 +57,19 @@ async function mcpRequest(method: string, params: Record<string, unknown> = {}, 
     return null;
   }
 
-  const result = await response.json() as { error?: { message?: string }; result?: unknown };
+  const result = await response.json() as { error?: { message?: string }; result?: { isError?: boolean; content?: Array<{ text?: string }> } };
   if (result.error) {
     throw new Error(`MCP tool error: ${result.error.message || JSON.stringify(result.error)}`);
   }
 
-  return result.result;
+  // 检查 MCP 工具级别的错误（isError 字段）
+  const toolResult = result.result as { isError?: boolean; content?: Array<{ text?: string }> } | undefined;
+  if (toolResult?.isError) {
+    const errorText = toolResult.content?.map(c => c.text).join('\n') || 'Unknown tool error';
+    throw new Error(`MCP tool error: ${errorText}`);
+  }
+
+  return toolResult;
 }
 
 async function ensureSession(): Promise<void> {
@@ -144,12 +151,20 @@ export async function publishToXiaohongshu(content: PublishContent): Promise<voi
         console.log(`Retrying publish (attempt ${attempt + 1}/${MAX_RETRIES + 1})...`);
       }
 
-      await callMcpTool('publish_content', {
+      const result = await callMcpTool('publish_content', {
         title: content.title,
         content: content.content,
         images: containerImages,
         tags: content.tags,
-      });
+      }) as { content?: Array<{ text?: string }> } | undefined;
+
+      const responseText = result?.content?.map(c => c.text).join('\n') || '';
+      console.log('Publish response:', responseText);
+
+      // 验证返回内容中是否包含成功标识
+      if (responseText.includes('失败') || responseText.includes('error') || responseText.includes('fail')) {
+        throw new Error(`Publish returned failure: ${responseText}`);
+      }
 
       console.log('Published to Xiaohongshu successfully!');
       return;

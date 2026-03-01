@@ -3,60 +3,12 @@ import * as path from 'path';
 import { Agent, fetch as undiciFetch } from 'undici';
 import type { PublishContent } from './types';
 
-const MAX_TITLE_LENGTH = 20;
-const MAX_CONTENT_LENGTH = 1000;
 const MAX_RETRIES = 2;
 
 const DEFAULT_MCP_URL = 'http://localhost:18060/mcp';
 
 function getMcpUrl(): string {
   return process.env.XHS_MCP_URL || DEFAULT_MCP_URL;
-}
-
-/**
- * 从 post.txt 文本中解析出发布所需的结构化内容
- */
-export function parsePostFile(postText: string, imagesDir: string): PublishContent {
-  const lines = postText.split('\n');
-
-  // 标题：第一行文本，去除 emoji 后截断到 20 字
-  const rawTitle = lines[0] || '';
-  const titleWithoutEmoji = rawTitle.replace(/[\p{Emoji_Presentation}\p{Emoji}\u200d\ufe0f]/gu, '').trim();
-  const title = titleWithoutEmoji.slice(0, MAX_TITLE_LENGTH);
-
-  // 提取所有 #xxx 格式的标签
-  const tagMatches = postText.match(/#([\u4e00-\u9fffa-zA-Z0-9_]+)/g) || [];
-  const tags = tagMatches.map(tag => tag.slice(1)); // 去掉 # 前缀
-
-  // 正文：标题之后的内容，去掉末尾标签行，截断到 1000 字
-  const contentLines = lines.slice(1);
-  // 移除末尾的纯标签行
-  while (contentLines.length > 0) {
-    const lastLine = contentLines[contentLines.length - 1].trim();
-    if (lastLine === '' || /^(#[\u4e00-\u9fffa-zA-Z0-9_]+\s*)+$/.test(lastLine)) {
-      contentLines.pop();
-    } else {
-      break;
-    }
-  }
-  const content = contentLines.join('\n').trim().slice(0, MAX_CONTENT_LENGTH);
-
-  // 图片：扫描 cards 目录获取所有 top*.png 的绝对路径
-  const images: string[] = [];
-  if (fs.existsSync(imagesDir)) {
-    const files = fs.readdirSync(imagesDir)
-      .filter(f => /^top\d+\.png$/.test(f))
-      .sort((a, b) => {
-        const numA = parseInt(a.match(/\d+/)![0]);
-        const numB = parseInt(b.match(/\d+/)![0]);
-        return numA - numB;
-      });
-    for (const file of files) {
-      images.push(path.resolve(imagesDir, file));
-    }
-  }
-
-  return { title, content, tags, images };
 }
 
 // 直连 Agent，绕过全局代理（generate-post.ts 会设置全局 ProxyAgent）
@@ -222,7 +174,43 @@ export async function publishFromOutput(): Promise<void> {
   }
 
   const postText = fs.readFileSync(postFile, 'utf-8');
-  const content = parsePostFile(postText, cardsDir);
+  const lines = postText.split('\n');
+
+  // 标题：第一行文本
+  const title = (lines[0] || '').trim();
+
+  // 提取所有 #xxx 格式的标签
+  const tagMatches = postText.match(/#([\u4e00-\u9fffa-zA-Z0-9_]+)/g) || [];
+  const tags = tagMatches.map(tag => tag.slice(1));
+
+  // 正文：标题之后的内容，去掉末尾标签行
+  const contentLines = lines.slice(1);
+  while (contentLines.length > 0) {
+    const lastLine = contentLines[contentLines.length - 1].trim();
+    if (lastLine === '' || /^(#[\u4e00-\u9fffa-zA-Z0-9_]+\s*)+$/.test(lastLine)) {
+      contentLines.pop();
+    } else {
+      break;
+    }
+  }
+  const postContent = contentLines.join('\n').trim();
+
+  // 图片：扫描 cards 目录获取所有 top*.png 的绝对路径
+  const images: string[] = [];
+  if (fs.existsSync(cardsDir)) {
+    const files = fs.readdirSync(cardsDir)
+      .filter(f => /^top\d+\.png$/.test(f))
+      .sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)![0]);
+        const numB = parseInt(b.match(/\d+/)![0]);
+        return numA - numB;
+      });
+    for (const file of files) {
+      images.push(path.resolve(cardsDir, file));
+    }
+  }
+
+  const content: PublishContent = { title, content: postContent, tags, images };
 
   console.log(`Title: ${content.title}`);
   console.log(`Content length: ${content.content.length} chars`);

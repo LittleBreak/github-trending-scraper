@@ -36,7 +36,7 @@ export function buildUserPrompt(repos: TrendingRepo[]): string {
     })
     .join('\n\n');
 
-  return `请根据以下GitHub Trending数据，生成一篇小红书风格的技术文案：
+  return `请根据以下GitHub Trending数据，生成一篇小红书风格的技术文案,：
 
 ━━━━━━━━━━ GitHub Trending Top ${repos.length} ━━━━━━━━━━
 

@@ -213,7 +213,15 @@ export async function publishFromOutput(): Promise<void> {
       break;
     }
   }
-  const postContent = contentLines.join('\n').trim();
+  // 正文截断：小红书限制最多 1000 字，按行截断避免断句
+  const MAX_CONTENT_LENGTH = 950;
+  let postContent = contentLines.join('\n').trim();
+  if (postContent.length > MAX_CONTENT_LENGTH) {
+    console.warn(`Content too long (${postContent.length} chars), truncating to ${MAX_CONTENT_LENGTH}`);
+    const truncated = postContent.slice(0, MAX_CONTENT_LENGTH);
+    const lastNewline = truncated.lastIndexOf('\n');
+    postContent = lastNewline > 0 ? truncated.slice(0, lastNewline).trim() : truncated.trim();
+  }
 
   // 图片：扫描 cards 目录获取所有 top*.png 的绝对路径
   const images: string[] = [];

@@ -35,3 +35,10 @@ export const TrendingRepoSchema = z.object({
 });
 
 export type TrendingRepoValidated = z.infer<typeof TrendingRepoSchema>;
+
+export interface PublishContent {
+  title: string;       // 最多 20 字
+  content: string;     // 最多 1000 字
+  tags: string[];      // 标签列表
+  images: string[];    // 图片绝对路径数组
+}

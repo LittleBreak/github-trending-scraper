@@ -10,6 +10,7 @@ The project automates the entire workflow from data collection to content genera
 2. **Validate** - Validates data integrity using Zod schemas
 3. **Render** - Generates visually appealing PNG cards using Playwright
 4. **Generate** - Creates Xiaohongshu-style post text using Google Gemini API
+5. **Publish** - Automatically publishes to Xiaohongshu via [xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) (optional)
 
 ## Tech Stack
 
@@ -19,6 +20,7 @@ The project automates the entire workflow from data collection to content genera
 | Scraper | Axios + Cheerio |
 | Renderer | Playwright (Chromium) |
 | LLM | Google Gemini API |
+| Publisher | xiaohongshu-mcp (Docker) |
 | Validation | Zod |
 | Testing | Vitest |
 | Package Manager | pnpm |
@@ -35,6 +37,7 @@ The project automates the entire workflow from data collection to content genera
 │   │   ├── index.ts          # Renderer exports
 │   │   ├── card-renderer.ts  # Card rendering logic
 │   │   └── templates/        # HTML card templates
+│   ├── publisher.ts             # Xiaohongshu publish module
 │   └── llm/
 │       ├── gemini-generator.ts  # Gemini API integration
 │       ├── prompts.ts           # Prompt builders
@@ -44,6 +47,7 @@ The project automates the entire workflow from data collection to content genera
 │   ├── cards/                # Generated PNG cards
 │   └── post.txt              # Generated post text
 ├── tests/                    # Test files
+├── docker-compose.yml        # xiaohongshu-mcp service
 └── .github/workflows/        # GitHub Actions automation
 ```
 
@@ -87,6 +91,10 @@ GitHub Trending HTML
    Gemini API
         ↓
    Post Text (output/post.txt)
+        ↓
+   xiaohongshu-mcp (optional)
+        ↓
+   Published to Xiaohongshu
 ```
 
 ## Output
@@ -110,6 +118,69 @@ Cards are saved to `output/cards/` with naming format: `top{rank}.png`
 | `GEMINI_API_KEY` | Yes | Google Gemini API key for post generation |
 | `HTTPS_PROXY` / `HTTP_PROXY` | No | Proxy for Gemini API calls |
 | `TEMPLATE` | No | Card template number (1-18). Random if not set |
+| `ENABLE_PUBLISH` | No | Set to `true` to enable auto-publish to Xiaohongshu. Default `false` |
+| `XHS_MCP_URL` | No | xiaohongshu-mcp server URL. Default `http://localhost:18060/mcp` |
+
+## Publish to Xiaohongshu (Optional)
+
+The pipeline supports auto-publishing to Xiaohongshu via [xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp). This step is disabled by default.
+
+### Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
+
+### Step 1: Start the MCP service
+
+```bash
+docker compose up -d
+```
+
+> **Apple Silicon (M1/M2/M3) note**: `docker-compose.yml` 已配置 `platform: linux/amd64`，通过 Rosetta 模拟运行，无需额外设置。
+
+Verify the service is running:
+
+```bash
+curl --noproxy localhost -X POST http://localhost:18060/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}},"id":1}'
+```
+
+> **Proxy note**: 如果本机配置了 HTTP/SOCKS 代理（如 `all_proxy`），curl 验证时需加 `--noproxy localhost`。Publisher 模块内部已使用 undici 直连 Agent 绕过全局代理，无需手动配置。
+
+### Step 2: First-time login
+
+On the first run, the pipeline will detect that you're not logged in and display a QR code. Scan it with the Xiaohongshu App to complete login. Cookies are persisted to `data/xhs-cookies/cookies.json` and reused automatically on subsequent runs.
+
+### Step 3: Run the full pipeline with publish
+
+```bash
+ENABLE_PUBLISH=true pnpm start
+```
+
+Or set `ENABLE_PUBLISH=true` in your `.env` file, then simply run `pnpm start`.
+
+### Full pipeline flow
+
+```
+pnpm start
+  ├── fetchTrending()        → Scrape GitHub Trending
+  ├── validateRepos()        → Zod validation
+  ├── saveToJson()           → output/current_trending.json
+  ├── renderCards()          → output/cards/top1~10.png
+  ├── generatePost()         → output/post.txt
+  └── publishFromOutput()    → Parse post.txt + cards → MCP → Xiaohongshu
+       ├── Check login status
+       ├── Prompt QR code scan if not logged in
+       └── Publish with retry (up to 3 attempts)
+```
+
+> Publish failures are caught gracefully and will not affect other pipeline outputs.
+
+### Stop the service
+
+```bash
+docker compose down
+```
 
 ## Automation
 

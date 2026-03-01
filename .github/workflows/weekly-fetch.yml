@@ -30,11 +30,27 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Restore Xiaohongshu cookies
+        if: vars.ENABLE_PUBLISH == 'true'
+        run: |
+          mkdir -p data/xhs-cookies
+          echo '${{ secrets.XHS_COOKIES }}' > data/xhs-cookies/cookies.json
+
+      - name: Start xiaohongshu-mcp service
+        if: vars.ENABLE_PUBLISH == 'true'
+        run: docker compose up -d xiaohongshu-mcp && sleep 5
+
       - name: Run scraper
         run: pnpm start
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TEMPLATE: ${{ github.event.inputs.template || vars.TEMPLATE }}
+          ENABLE_PUBLISH: ${{ vars.ENABLE_PUBLISH || 'false' }}
+          XHS_MCP_URL: http://localhost:18060/mcp
+
+      - name: Stop xiaohongshu-mcp service
+        if: vars.ENABLE_PUBLISH == 'true'
+        run: docker compose down
 
       - name: Get current date
         id: date

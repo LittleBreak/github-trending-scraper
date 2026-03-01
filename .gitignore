@@ -63,6 +63,9 @@ coverage/
 # yarn.lock
 # pnpm-lock.yaml
 
+# xiaohongshu-mcp 数据
+data/
+
 # 其他
 .turbo
 .vercel

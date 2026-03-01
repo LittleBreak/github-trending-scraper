@@ -184,13 +184,33 @@ docker compose down
 
 ## Automation
 
-A GitHub Actions workflow runs every Monday at 00:00 UTC to:
+A GitHub Actions workflow runs on the 1st of each month at 12:00 Beijing time (04:00 UTC) to:
 1. Fetch the latest trending repositories
 2. Generate new card images
 3. Generate Xiaohongshu post text
-4. Auto-commit the results to the repository
+4. Package outputs as a Release zip
 
 Manual trigger is also available via `workflow_dispatch`.
+
+### GitHub Actions Configuration
+
+The workflow requires the following **Secrets** and **Variables** to be configured in your repository settings (**Settings → Secrets and variables → Actions**):
+
+**Secrets:**
+
+| Secret | Required | Description |
+|--------|----------|-------------|
+| `GEMINI_API_KEY` | Yes | Google Gemini API key for post generation |
+| `XHS_COOKIES` | No | Xiaohongshu `cookies.json` content for auto-publish. Must be kept up-to-date as cookies expire |
+
+**Variables:**
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `ENABLE_PUBLISH` | No | Set to `true` to enable auto-publish to Xiaohongshu. Default `false` |
+| `TEMPLATE` | No | Card template number (1-18). Random if not set |
+
+> **Note**: The publish step depends on Docker (available on `ubuntu-latest`) and valid Xiaohongshu cookies. Cookies may expire or be invalidated by Xiaohongshu's risk control due to data center IP addresses. If publish is not needed, leave `ENABLE_PUBLISH` unset — the scrape, render, and post generation steps will run without any extra configuration.
 
 ## Star History
 

@@ -191,8 +191,13 @@ export async function publishFromOutput(): Promise<void> {
   const postText = fs.readFileSync(postFile, 'utf-8');
   const lines = postText.split('\n');
 
-  // 标题：第一行文本
-  const title = (lines[0] || '').trim();
+  // 标题：第一行文本，小红书限制最多 20 字
+  const MAX_TITLE_LENGTH = 20;
+  let title = (lines[0] || '').trim();
+  if ([...title].length > MAX_TITLE_LENGTH) {
+    console.warn(`Title too long (${[...title].length} chars), truncating to ${MAX_TITLE_LENGTH}: ${title}`);
+    title = [...title].slice(0, MAX_TITLE_LENGTH).join('');
+  }
 
   // 提取所有 #xxx 格式的标签
   const tagMatches = postText.match(/#([\u4e00-\u9fffa-zA-Z0-9_]+)/g) || [];
